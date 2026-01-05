@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - My Work</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #222;
+      background-color: #f5f5f7;
+    }
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .nav-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .nav-links a.active {
+      color: #ffffff;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.15rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .lead {
+      color: #4b5563;
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+    .project-card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    .project-card p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">MY PORTFOLIO</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Portfolio</h1>
+      <p class="lead">
+        Here you can showcase your projects, case studies, or any work you want
+        visitors to see.
+      </p>
+      <div class="projects">
+        <article class="project-card">
+          <h2>Project One</h2>
+          <p>A short description of your first project goes here.</p>
+        </article>
+        <article class="project-card">
+          <h2>Project Two</h2>
+          <p>A short description of your second project goes here.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
