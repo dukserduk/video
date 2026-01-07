@@ -1,32 +1,35 @@
 # GitHub Copilot Instructions for this Repo
 
 ## 1. Current State & Big Picture
-- This repo currently contains Git metadata plus Joomla-style `.gitignore` and `.gitattributes` files, but no application source code yet.
-- The `.gitignore` entries (for example `administrator/components/com_*`, `administrator/language/en-GB/*`, etc.) match a standard Joomla CMS installation layout.
-- Assume this repo is intended to host a Joomla/PHP-based web site or extensions, but treat it as effectively greenfield until real source files are added.
+- This repo is a very small static site with two HTML pages: [index.html](index.html) (home) and [portfolio.html](portfolio.html).
+- Pages are plain HTML with inline `<style>` blocks (no JavaScript, no build step, no backend).
+- Both pages share the same overall layout: dark sticky header with brand "MY PORTFOLIO", navigation links, and a centered main content area with max-width 960px.
+- Older Joomla-oriented files (e.g., .gitignore/.gitattributes patterns) are historical; treat the active "application" as this static portfolio, not a Joomla app.
 
-## 2. Repository Layout & Conventions
-- Root level is expected to mirror a Joomla site structure (e.g. `administrator/`, `components/`, `images/`, possibly `api/` and `cli/`), even if those directories are not yet committed.
-- Respect the existing `.gitignore`: do **not** propose tracking files that are explicitly ignored there (mostly Joomla core files and language packs).
-- When creating new code, prefer placing it in clearly custom locations (e.g. under `components/com_<projectname>/`, custom templates, or a `src/`-style subtree) rather than modifying core Joomla files.
-- Check `.gitattributes` for Git LFS settings before suggesting binary or large assets; avoid introducing new large binaries unless aligned with those rules.
+## 2. Layout & Conventions
+- Each page is self-contained: HTML, meta viewport, title, and CSS are defined directly in the file.
+- Navigation is duplicated between pages; keep the header structure and class names (`brand`, `nav-links`, `active`) consistent when adding new pages.
+- Styling is mobile-first and centered: `max-width: 960px`, body background `#f5f5f7`, header `#111827`, accent blue `#3b82f6`, and gray text `#4b5563`.
+- Content uses simple cards/sections (`.card` on the home page, `.projects` grid and `.project-card` on the portfolio page) for elevation and spacing.
 
 ## 3. Architecture Guidance for New Code
-- Because no code is present, any architectural decisions (framework choice, folder layout beyond Joomla conventions, build tooling) are **assumptions** and must be confirmed with the user first.
-- When scaffolding new features, explicitly propose a structure (e.g. "Joomla component", "standalone PHP library", or "frontend SPA under `frontend/`") and wait for user confirmation before generating large amounts of code.
-- Prefer composable, self-contained modules/components that can live alongside a Joomla site rather than tightly coupling to Joomla internals unless the user requests a core extension.
+- Treat this as a static site first; favor additional HTML pages and shared CSS over introducing heavy frameworks unless the user explicitly asks.
+- When adding new pages, copy the existing `<header>`/`<nav>` structure so the brand and navigation remain visually identical across the site.
+- Consider extracting common styles into a shared CSS file (e.g., `styles.css`) if the site grows, but keep class names and current visual design intact unless the user wants a redesign.
+- Use progressive enhancement if you add JavaScript: pages should remain usable with HTML/CSS alone.
 
-## 4. Workflows, Builds, and Tests
-- There are currently **no** build scripts, package manifests, or test frameworks in the repo (no `composer.json`, `package.json`, or CI configs discovered).
-- Before introducing tooling (Composer, PHPUnit, Node/Vite, Docker, etc.), explain what you plan to add and how it fits a Joomla/PHP project, then ask the user to confirm.
-- When adding tooling, keep commands simple and document them (e.g. in a new `README.md` and by updating this file) so future agents can reuse the same workflows.
+## 4. Workflows, Preview, and Tooling
+- There is no build system, package manager, or tests configured; you can open [index.html](index.html) or [portfolio.html](portfolio.html) directly in a browser to preview.
+- It is safe for an agent to suggest using a static file server or VS Code Live Server extension for live-reload previews, but do not add Node/CLI tooling without user confirmation.
+- If you introduce any tooling (e.g., a CSS bundler or static site generator), document commands and new files clearly and keep the default workflow (open HTML in browser) working.
 
-## 5. Git & Asset Handling
-- `.gitattributes` configures Git LFS for patterns like `*.psd` and some folders (`*Administrator`, `*api`, `*cli`, `*images`, `*components`); avoid generating large binary assets outside these patterns.
-- Prefer text- or vector-based assets (SVG, source image formats) over large binary exports when possible, and keep generated media minimal unless the user explicitly asks for it.
+## 5. Assets and File Organization
+- There are currently no image or font assets; if adding them, prefer creating an `assets/` or `images/` directory at the repo root and linking with relative paths.
+- Avoid committing large binary media; use compressed web-friendly formats (SVG, optimized PNG/JPEG) and small demo assets unless the user instructs otherwise.
+- Leave existing `.gitignore`/`.gitattributes` patterns in place unless the user asks to clean them up; do not rely on them as evidence of a Joomla app.
 
 ## 6. Collaboration Guidelines for AI Agents
-- Always surface key assumptions (e.g. Joomla version, PHP version, hosting environment) and ask the user to confirm before depending on them.
-- When the repo is still mostly empty, bias toward creating small, well-explained initial scaffolds rather than full-blown applications in one step.
-- Leave short, high-value documentation when you introduce new structures: update or create `README.md`, note important commands, and, when relevant, add brief comments in config files.
-- If you cannot infer something from the existing files (e.g., testing strategy, deployment process), state that clearly instead of guessing, and offer a couple of options for the user to choose from.
+- Keep changes small and composable: update one page or component at a time and preserve the current visual style unless explicitly asked to redesign.
+- Match existing HTML and CSS style: semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`), consistent spacing, and system-ui font stack.
+- When introducing new patterns (e.g., a project card layout or a contact form), add them first to [portfolio.html](portfolio.html) or a new page and keep markup simple and readable.
+- If you cannot infer a workflow (e.g., deployment target, preferred tooling), state that clearly and present 1–2 concrete options instead of guessing.
