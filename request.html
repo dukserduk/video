@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request - Project Inquiry</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #222;
+      background-color: #f5f5f7;
+    }
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .nav-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .nav-links a.active {
+      color: #ffffff;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.15rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .lead {
+      color: #4b5563;
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+    form {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .required {
+      color: #dc2626;
+      margin-left: 0.1rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font: inherit;
+      color: inherit;
+      background-color: #f9fafb;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .inline {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.15rem;
+    }
+    .templates-link {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .templates-link a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    .templates-link a:hover {
+      text-decoration: underline;
+    }
+    button[type="submit"] {
+      margin-top: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      font: inherit;
+      background-color: #3b82f6;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #2563eb;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">MY PORTFOLIO</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="request.html" class="active">Request</a>
+        <a href="templates.html">Templates</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Request a Project</h1>
+      <p class="lead">
+        Fill out this form to tell us what you would like us to build. All fields are required unless noted otherwise.
+      </p>
+      <form id="request-form">
+        <div class="form-group">
+          <label for="name">Your Name<span class="required">*</span></label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email<span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Your Phone<span class="required">*</span></label>
+          <div class="inline">
+            <input type="tel" id="phone" name="phone" required />
+            <label class="inline" for="requestCall" style="font-weight:400;">
+              <input type="checkbox" id="requestCall" name="requestCall" />
+              <span>Request Call</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="projectType">Tell Us What To Build<span class="required">*</span></label>
+          <select id="projectType" name="projectType" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="clip5">Video clip (5 Min max)</option>
+            <option value="clip10">Video clip (10 Min max)</option>
+            <option value="movie20">Movie (20 Min max)</option>
+            <option value="restorePhoto">Restore Odd Photo</option>
+            <option value="photoToVideo">Photo To Video</option>
+            <option value="template">Build From Template*</option>
+          </select>
+          <div id="templates-link-wrapper" class="templates-link">
+            * For template-based projects, please browse available options on our
+            <a href="templates.html">Templates</a> page.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Tell Us Anything Specific About Request<span class="required">*</span></label>
+          <textarea id="details" name="details" maxlength="2000" required></textarea>
+          <div class="hint">Max 2000 characters.</div>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <noscript>
+        <p class="hint">Note: JavaScript is required for automatic email composition and showing the Templates link when relevant.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const form = document.getElementById('request-form');
+      const projectSelect = document.getElementById('projectType');
+      const templatesWrapper = document.getElementById('templates-link-wrapper');
+
+      if (projectSelect && templatesWrapper) {
+        projectSelect.addEventListener('change', function () {
+          if (this.value === 'template') {
+            templatesWrapper.style.display = 'block';
+          } else {
+            templatesWrapper.style.display = 'none';
+          }
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const projectTypeElement = document.getElementById('projectType');
+          const projectTypeText = projectTypeElement.options[projectTypeElement.selectedIndex].text;
+          const details = document.getElementById('details').value.trim();
+          const requestCallChecked = document.getElementById('requestCall').checked ? 'Yes' : 'No';
+
+          const lines = [
+            'Name: ' + name,
+            'Email: ' + email,
+            'Phone: ' + phone,
+            'Request Call: ' + requestCallChecked,
+            'What To Build: ' + projectTypeText,
+            'Details: ' + (details || '(none)')
+          ];
+
+          const subject = encodeURIComponent('New Request from Portfolio Site');
+          const body = encodeURIComponent(lines.join('\n'));
+          const mailto = 'mailto:vfrenk@gmail.com?subject=' + subject + '&body=' + body;
+
+          window.location.href = mailto;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
