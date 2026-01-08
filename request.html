@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Request - Project Inquiry</title>
+  <title>DESIGN STUDIO - Request</title>
   <style>
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.5;
       color: #222;
-      background-color: #f5f5f7;
+      background-color: #ffe4e6;
     }
     header {
-      background: #111827;
+      background: #ffb3b3;
       color: #f9fafb;
       padding: 1rem 1.5rem;
       position: sticky;
@@ -32,7 +32,7 @@
       letter-spacing: 0.05em;
     }
     .nav-links a {
-      color: #d1d5db;
+      color: #111;
       text-decoration: none;
       margin-left: 1rem;
       font-size: 0.95rem;
@@ -146,7 +146,9 @@
 <body>
   <header>
     <nav>
-      <div class="brand">MY PORTFOLIO</div>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-weight:700;font-size:1.25rem;color:#111;">DESIGN STUDIO Dukserduk</span>
+      </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
@@ -207,6 +209,13 @@
           <div class="hint">Max 2000 characters.</div>
         </div>
 
+        <div class="form-group inline" style="margin-bottom:1.5rem;align-items:center;">
+          <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required style="margin-right:0.5rem;" />
+          <label for="termsCheckbox" style="margin:0;cursor:pointer;">
+            I have read <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Terms and Condition</a><span class="required">*</span>
+          </label>
+        </div>
+
         <button type="submit">Submit</button>
       </form>
       <noscript>
@@ -214,6 +223,13 @@
       </noscript>
     </section>
   </main>
+  </main>
+  <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
+    <div style="max-width:960px;margin:0 auto;">
+      <a href="terms.html" style="color:#3b82f6;text-decoration:underline;">Terms and Conditions</a>
+      <span style="margin-left:1.5rem;">&copy; 2026 DESIGN STUDIO. All rights reserved.</span>
+    </div>
+  </footer>
 
   <script>
     (function () {
