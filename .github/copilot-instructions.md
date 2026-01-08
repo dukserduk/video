@@ -1,35 +1,36 @@
+
 # GitHub Copilot Instructions for this Repo
 
-## 1. Current State & Big Picture
-- This repo is a very small static site with two HTML pages: [index.html](index.html) (home) and [portfolio.html](portfolio.html).
-- Pages are plain HTML with inline `<style>` blocks (no JavaScript, no build step, no backend).
-- Both pages share the same overall layout: dark sticky header with brand "MY PORTFOLIO", navigation links, and a centered main content area with max-width 960px.
-- Older Joomla-oriented files (e.g., .gitignore/.gitattributes patterns) are historical; treat the active "application" as this static portfolio, not a Joomla app.
+## 1. Big Picture & Architecture
+- This repo is a static portfolio site with multiple HTML pages: [index.html](index.html) (home), [portfolio.html](portfolio.html), [request.html](request.html), and [templates.html](templates.html).
+- All pages are standalone HTML with inline `<style>` blocks. There is **no JavaScript, build step, or backend**.
+- The site uses a consistent layout: dark sticky header (brand: "MY PORTFOLIO"), navigation links, and a centered main content area (`max-width: 960px`).
+- Treat the project as a static site only; ignore legacy Joomla-related files and patterns.
 
-## 2. Layout & Conventions
-- Each page is self-contained: HTML, meta viewport, title, and CSS are defined directly in the file.
-- Navigation is duplicated between pages; keep the header structure and class names (`brand`, `nav-links`, `active`) consistent when adding new pages.
-- Styling is mobile-first and centered: `max-width: 960px`, body background `#f5f5f7`, header `#111827`, accent blue `#3b82f6`, and gray text `#4b5563`.
-- Content uses simple cards/sections (`.card` on the home page, `.projects` grid and `.project-card` on the portfolio page) for elevation and spacing.
+## 2. Layout, Patterns & Conventions
+- Each HTML file is self-contained: includes its own `<head>`, meta viewport, title, and CSS.
+- The `<header>` and navigation markup (with classes `brand`, `nav-links`, `active`) is duplicated across all pages. **Always copy this structure for new pages.**
+- Mobile-first, centered design: body background `#f5f5f7`, header `#111827`, accent blue `#3b82f6`, text `#4b5563`.
+- Use `.card` for home page sections, `.projects` grid and `.project-card` for portfolio items. Follow these class names and spacing for new content.
+- If the site grows, consider extracting shared CSS to a `styles.css` file, but **do not change class names or layout unless requested**.
 
-## 3. Architecture Guidance for New Code
-- Treat this as a static site first; favor additional HTML pages and shared CSS over introducing heavy frameworks unless the user explicitly asks.
-- When adding new pages, copy the existing `<header>`/`<nav>` structure so the brand and navigation remain visually identical across the site.
-- Consider extracting common styles into a shared CSS file (e.g., `styles.css`) if the site grows, but keep class names and current visual design intact unless the user wants a redesign.
-- Use progressive enhancement if you add JavaScript: pages should remain usable with HTML/CSS alone.
+## 3. Workflows & Tooling
+- **No build, test, or package manager**: open any HTML file directly in a browser to preview.
+- You may suggest using a static file server or VS Code Live Server for live preview, but do **not** add Node.js or CLI tooling unless the user asks.
+- If adding tooling (e.g., CSS bundler, static site generator), document all commands and keep the default open-in-browser workflow working.
 
-## 4. Workflows, Preview, and Tooling
-- There is no build system, package manager, or tests configured; you can open [index.html](index.html) or [portfolio.html](portfolio.html) directly in a browser to preview.
-- It is safe for an agent to suggest using a static file server or VS Code Live Server extension for live-reload previews, but do not add Node/CLI tooling without user confirmation.
-- If you introduce any tooling (e.g., a CSS bundler or static site generator), document commands and new files clearly and keep the default workflow (open HTML in browser) working.
+## 4. Assets & File Organization
+- No images or fonts by default. If adding, create an `assets/` or `images/` directory at the repo root and use relative paths.
+- Use web-friendly formats (SVG, optimized PNG/JPEG) and keep assets small unless instructed otherwise.
+- Do not modify `.gitignore`/`.gitattributes` unless asked.
 
-## 5. Assets and File Organization
-- There are currently no image or font assets; if adding them, prefer creating an `assets/` or `images/` directory at the repo root and linking with relative paths.
-- Avoid committing large binary media; use compressed web-friendly formats (SVG, optimized PNG/JPEG) and small demo assets unless the user instructs otherwise.
-- Leave existing `.gitignore`/`.gitattributes` patterns in place unless the user asks to clean them up; do not rely on them as evidence of a Joomla app.
+## 5. AI Agent Collaboration
+- Make small, composable changes: update one page/component at a time, preserve the current style unless a redesign is requested.
+- Match existing HTML/CSS: use semantic elements, consistent spacing, and the system-ui font stack.
+- Add new patterns (e.g., cards, forms) to [portfolio.html](portfolio.html) or a new page first, using simple, readable markup.
+- If workflow or deployment is unclear, state so and offer 1–2 concrete options.
 
-## 6. Collaboration Guidelines for AI Agents
-- Keep changes small and composable: update one page or component at a time and preserve the current visual style unless explicitly asked to redesign.
-- Match existing HTML and CSS style: semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`), consistent spacing, and system-ui font stack.
-- When introducing new patterns (e.g., a project card layout or a contact form), add them first to [portfolio.html](portfolio.html) or a new page and keep markup simple and readable.
-- If you cannot infer a workflow (e.g., deployment target, preferred tooling), state that clearly and present 1–2 concrete options instead of guessing.
+## 6. Examples & References
+- See [index.html](index.html) for the home layout and `.card` usage.
+- See [portfolio.html](portfolio.html) for the project grid and `.project-card` pattern.
+- [request.html](request.html) and [templates.html](templates.html) follow the same header/nav structure.
