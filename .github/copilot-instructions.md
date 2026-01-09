@@ -2,35 +2,40 @@
 # GitHub Copilot Instructions for this Repo
 
 ## 1. Big Picture & Architecture
-- This repo is a static portfolio site with multiple HTML pages: [index.html](index.html) (home), [portfolio.html](portfolio.html), [request.html](request.html), and [templates.html](templates.html).
-- All pages are standalone HTML with inline `<style>` blocks. There is **no JavaScript, build step, or backend**.
-- The site uses a consistent layout: dark sticky header (brand: "MY PORTFOLIO"), navigation links, and a centered main content area (`max-width: 960px`).
-- Treat the project as a static site only; ignore legacy Joomla-related files and patterns.
+- Static brochure/portfolio site for "DESIGN STUDIO Dukserduk" with multiple standalone HTML pages: [index.html](index.html) (home), [portfolio.html](portfolio.html), [request.html](request.html), [templates.html](templates.html), [terms.html](terms.html), and [business.html](business.html).
+- Each page is self-contained (own `<head>`, meta viewport, inline `<style>`). There is **no build system or backend**; everything is pure HTML/CSS with a small inline JavaScript snippet.
+- The only JavaScript is in [request.html](request.html): a vanilla script that shows/hides a templates hint and builds a `mailto:` URL from the form, then redirects `window.location.href` to open the user’s email client.
+- Treat this as a static site; do not introduce frameworks or bundlers unless explicitly requested.
 
 ## 2. Layout, Patterns & Conventions
-- Each HTML file is self-contained: includes its own `<head>`, meta viewport, title, and CSS.
-- The `<header>` and navigation markup (with classes `brand`, `nav-links`, `active`) is duplicated across all pages. **Always copy this structure for new pages.**
-- Mobile-first, centered design: body background `#f5f5f7`, header `#111827`, accent blue `#3b82f6`, text `#4b5563`.
-- Use `.card` for home page sections, `.projects` grid and `.project-card` for portfolio items. Follow these class names and spacing for new content.
-- If the site grows, consider extracting shared CSS to a `styles.css` file, but **do not change class names or layout unless requested**.
+- Shared look and feel: pink header background `#ffb3b3`, light background (`#ffe4e6` on main pages, `#f5f5f7` on terms/business), system-ui font, centered content with `max-width: 960px`.
+- Header + nav pattern is repeated across pages (brand text + nav links for Home/Portfolio/Request/Templates/Terms/Business). When adding pages or changing navigation, update all headers/footers to stay consistent.
+- On the home page [index.html](index.html), use `.card` sections for key content blocks.
+- On the portfolio page [portfolio.html](portfolio.html), use `.projects` + `.project-card` for grid items; follow the spacing and typography already used there when adding projects.
+- On the templates page [templates.html](templates.html), use `.templates-grid` + `.template-card` + `.preview-box` when adding new template slots or real YouTube embeds.
+- Terms and business pages ([terms.html](terms.html), [business.html](business.html)) use a white `.container` card centered in the page for long-form text (terms list, business info).
 
-## 3. Workflows & Tooling
-- **No build, test, or package manager**: open any HTML file directly in a browser to preview.
-- You may suggest using a static file server or VS Code Live Server for live preview, but do **not** add Node.js or CLI tooling unless the user asks.
-- If adding tooling (e.g., CSS bundler, static site generator), document all commands and keep the default open-in-browser workflow working.
+## 3. Forms & JavaScript
+- Keep any new interactivity simple and inline (like the existing script in [request.html](request.html)); prefer vanilla JS over frameworks.
+- The request form relies on standard HTML validation (`required`, `maxlength`) plus a JS `submit` handler that:
+	- Prevents default submission.
+	- Reads values from visible fields.
+	- Builds a multi-line email body and subject.
+	- Navigates to a `mailto:` link to open the default email client.
+- If you add or rename form fields, update the script’s DOM queries and `lines` array to match, preserving the mailto-based workflow.
+- The project-type `<select>` toggles a text hint linking to [templates.html](templates.html) when the "Build From Template" option is selected; keep that behavior aligned if options change.
 
 ## 4. Assets & File Organization
-- No images or fonts by default. If adding, create an `assets/` or `images/` directory at the repo root and use relative paths.
-- Use web-friendly formats (SVG, optimized PNG/JPEG) and keep assets small unless instructed otherwise.
-- Do not modify `.gitignore`/`.gitattributes` unless asked.
+- Static files live at the repo root (HTML pages) plus asset folders: [assets](assets), [images](images%20), and [videos](videos).
+- When adding images or video thumbnails, place them under these folders and reference via relative paths from the HTML pages.
+- Favor lightweight formats (SVG for icons, compressed PNG/JPEG for images, embedded/linked YouTube for video previews) to keep the site small.
 
-## 5. AI Agent Collaboration
-- Make small, composable changes: update one page/component at a time, preserve the current style unless a redesign is requested.
-- Match existing HTML/CSS: use semantic elements, consistent spacing, and the system-ui font stack.
-- Add new patterns (e.g., cards, forms) to [portfolio.html](portfolio.html) or a new page first, using simple, readable markup.
-- If workflow or deployment is unclear, state so and offer 1–2 concrete options.
+## 5. Workflows & Tooling
+- There is **no npm/pip/CLI workflow**. To preview, open any HTML file directly in a browser or use a simple static server (e.g., VS Code Live Server).
+- If you propose additional tooling (e.g., a CSS file shared across pages), keep the current open-in-browser behavior working and document any new steps in this repo.
 
-## 6. Examples & References
-- See [index.html](index.html) for the home layout and `.card` usage.
-- See [portfolio.html](portfolio.html) for the project grid and `.project-card` pattern.
-- [request.html](request.html) and [templates.html](templates.html) follow the same header/nav structure.
+## 6. AI Agent Collaboration
+- Make small, focused edits: adjust one page or section at a time and maintain visual consistency across headers, nav, and footer.
+- Preserve existing colors, typography, and layout unless a redesign is explicitly requested.
+- When adding new content, mirror existing patterns: cards on [index.html](index.html), project cards on [portfolio.html](portfolio.html), template cards on [templates.html](templates.html), and long-form text inside `.container` on [terms.html](terms.html) / [business.html](business.html).
+- If something about deployment or hosting is unclear, state assumptions and suggest 1–2 concrete static-hosting options rather than introducing complex infrastructure.
