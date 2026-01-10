@@ -169,36 +169,46 @@
 
   <main>
     <section>
-      <h1>Request a Project</h1>
-      <p class="lead">
+      <div class="form-group" style="max-width:240px;margin-bottom:1.5rem;">
+        <label for="languageSelect" id="label-language">Language</label>
+        <select id="languageSelect" name="languageSelect">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+        </select>
+      </div>
+
+      <h1 id="page-title">Request a Project</h1>
+      <p class="lead" id="lead-text">
         Fill out this form to tell us what you would like us to build. All fields are required unless noted otherwise.
       </p>
       <form id="request-form">
         <div class="form-group">
-          <label for="name">Your Name<span class="required">*</span></label>
+          <label for="name" id="label-name">Your Name<span class="required">*</span></label>
           <input type="text" id="name" name="name" required />
         </div>
 
         <div class="form-group">
-          <label for="email">Your Email<span class="required">*</span></label>
+          <label for="email" id="label-email">Your Email<span class="required">*</span></label>
           <input type="email" id="email" name="email" required />
         </div>
 
         <div class="form-group">
-          <label for="phone">Your Phone<span class="required">*</span></label>
+          <label for="phone" id="label-phone">Your Phone<span class="required">*</span></label>
           <div class="inline">
             <input type="tel" id="phone" name="phone" required />
             <label class="inline" for="requestCall" style="font-weight:400;">
               <input type="checkbox" id="requestCall" name="requestCall" />
-              <span>Request Call</span>
+              <span id="label-requestCallText">Request Call</span>
             </label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="projectType">Tell Us What To Build<span class="required">*</span></label>
+          <label for="projectType" id="label-projectType">Tell Us What To Build<span class="required">*</span></label>
           <select id="projectType" name="projectType" required>
-            <option value="" disabled selected>Select an option</option>
+            <option value="" disabled selected id="option-select">Select an option</option>
             <option value="clip5">Video clip (5 Min max)</option>
             <option value="clip10">Video clip (10 Min max)</option>
             <option value="movie20">Movie (20 Min max)</option>
@@ -207,25 +217,25 @@
             <option value="template">Build From Template*</option>
           </select>
           <div id="templates-link-wrapper" class="templates-link">
-            * For template-based projects, please browse available options on our
-            <a href="templates.html">Templates</a> page.
+            <span id="templates-hint-text">* For template-based projects, please browse available options on our
+            <a href="templates.html">Templates</a> page.</span>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="details">Tell Us Anything Specific About Request<span class="required">*</span></label>
+          <label for="details" id="label-details">Tell Us Anything Specific About Request<span class="required">*</span></label>
           <textarea id="details" name="details" maxlength="20000" required></textarea>
-          <div class="hint">Max 2000 characters.</div>
+          <div class="hint" id="details-hint">Max 2000 characters.</div>
         </div>
 
         <div class="form-group inline" style="margin-bottom:1.5rem;align-items:center;">
           <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required style="margin-right:0.5rem;" />
-          <label for="termsCheckbox" style="margin:0;cursor:pointer;">
+          <label for="termsCheckbox" id="label-terms" style="margin:0;cursor:pointer;">
             I have read <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Terms and Condition</a><span class="required">*</span>
           </label>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit-button">Submit</button>
       </form>
       <noscript>
         <p class="hint">Note: JavaScript is required for automatic email composition and showing the Templates link when relevant.</p>
@@ -245,6 +255,176 @@
       const form = document.getElementById('request-form');
       const projectSelect = document.getElementById('projectType');
       const templatesWrapper = document.getElementById('templates-link-wrapper');
+      const languageSelect = document.getElementById('languageSelect');
+
+      const translations = {
+        en: {
+          pageTitle: 'Request a Project',
+          leadText:
+            'Fill out this form to tell us what you would like us to build. All fields are required unless noted otherwise.',
+          labelLanguage: 'Language',
+          labelName: 'Your Name',
+          labelEmail: 'Your Email',
+          labelPhone: 'Your Phone',
+          labelRequestCall: 'Request Call',
+          labelProjectType: 'Tell Us What To Build',
+          optionSelect: 'Select an option',
+          optionClip5: 'Video clip (5 Min max)',
+          optionClip10: 'Video clip (10 Min max)',
+          optionMovie20: 'Movie (20 Min max)',
+          optionRestorePhoto: 'Restore Odd Photo',
+          optionPhotoToVideo: 'Photo To Video',
+          optionTemplate: 'Build From Template*',
+          labelDetails: 'Tell Us Anything Specific About Request',
+          detailsHint: 'Max 2000 characters.',
+          templatesHint:
+            '* For template-based projects, please browse available options on our <a href="templates.html">Templates</a> page.',
+          termsLabel:
+            'I have read <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Terms and Condition</a><span class="required">*</span>',
+          submitButton: 'Submit',
+        },
+        es: {
+          pageTitle: 'Solicitar un proyecto',
+          leadText:
+            'Rellena este formulario para contarnos qué te gustaría que construyéramos. Todos los campos son obligatorios salvo indicación en contrario.',
+          labelLanguage: 'Idioma',
+          labelName: 'Tu nombre',
+          labelEmail: 'Tu correo electrónico',
+          labelPhone: 'Tu teléfono',
+          labelRequestCall: 'Solicitar llamada',
+          labelProjectType: 'Cuéntanos qué debemos crear',
+          optionSelect: 'Selecciona una opción',
+          optionClip5: 'Videoclip (máx. 5 min)',
+          optionClip10: 'Videoclip (máx. 10 min)',
+          optionMovie20: 'Película (máx. 20 min)',
+          optionRestorePhoto: 'Restaurar foto antigua',
+          optionPhotoToVideo: 'Fotos a vídeo',
+          optionTemplate: 'Crear desde plantilla*',
+          labelDetails: 'Cuéntanos cualquier detalle específico de tu solicitud',
+          detailsHint: 'Máx. 2000 caracteres.',
+          templatesHint:
+            '* Para proyectos basados en plantilla, consulta las opciones disponibles en nuestra página de <a href="templates.html">Plantillas</a>.',
+          termsLabel:
+            'He leído las <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Condiciones</a><span class="required">*</span>',
+          submitButton: 'Enviar',
+        },
+        ru: {
+          pageTitle: 'Запрос проекта',
+          leadText:
+            'Заполните эту форму и расскажите, что вы хотите, чтобы мы создали. Все поля обязательны, если не указано иначе.',
+          labelLanguage: 'Язык',
+          labelName: 'Ваше имя',
+          labelEmail: 'Ваш e‑mail',
+          labelPhone: 'Ваш телефон',
+          labelRequestCall: 'Перезвоните мне',
+          labelProjectType: 'Что нужно создать',
+          optionSelect: 'Выберите вариант',
+          optionClip5: 'Видеоклип (до 5 мин)',
+          optionClip10: 'Видеоклип (до 10 мин)',
+          optionMovie20: 'Фильм (до 20 мин)',
+          optionRestorePhoto: 'Восстановить старое фото',
+          optionPhotoToVideo: 'Фото в видео',
+          optionTemplate: 'Создать по шаблону*',
+          labelDetails: 'Расскажите любые важные детали запроса',
+          detailsHint: 'Максимум 2000 символов.',
+          templatesHint:
+            '* Для проектов по шаблону сначала посмотрите варианты на странице <a href="templates.html">Шаблоны</a>.',
+          termsLabel:
+            'Я прочитал(а) <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Условия и правила</a><span class="required">*</span>',
+          submitButton: 'Отправить',
+        },
+        uk: {
+          pageTitle: 'Запит на проєкт',
+          leadText:
+            'Заповніть цю форму та розкажіть, що ви хочете, щоб ми створили. Усі поля обов’язкові, якщо не зазначено інакше.',
+          labelLanguage: 'Мова',
+          labelName: 'Ваше ім’я',
+          labelEmail: 'Ваш e‑mail',
+          labelPhone: 'Ваш телефон',
+          labelRequestCall: 'Передзвоніть мені',
+          labelProjectType: 'Що потрібно створити',
+          optionSelect: 'Оберіть варіант',
+          optionClip5: 'Відеокліп (до 5 хв)',
+          optionClip10: 'Відеокліп (до 10 хв)',
+          optionMovie20: 'Фільм (до 20 хв)',
+          optionRestorePhoto: 'Відновити старе фото',
+          optionPhotoToVideo: 'Фото у відео',
+          optionTemplate: 'Створити за шаблоном*',
+          labelDetails: 'Розкажіть будь-які важливі деталі запиту',
+          detailsHint: 'Максимум 2000 символів.',
+          templatesHint:
+            '* Для проєктів за шаблоном спершу перегляньте варіанти на сторінці <a href="templates.html">Шаблони</a>.',
+          termsLabel:
+            'Я ознайомився з <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Умовами та правилами</a><span class="required">*</span>',
+          submitButton: 'Надіслати',
+        },
+      };
+
+      function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+
+        const pageTitle = document.getElementById('page-title');
+        const leadText = document.getElementById('lead-text');
+        const labelLanguage = document.getElementById('label-language');
+        const labelName = document.getElementById('label-name');
+        const labelEmail = document.getElementById('label-email');
+        const labelPhone = document.getElementById('label-phone');
+        const labelRequestCallText = document.getElementById('label-requestCallText');
+        const labelProjectType = document.getElementById('label-projectType');
+        const optionSelect = document.getElementById('option-select');
+        const detailsLabel = document.getElementById('label-details');
+        const detailsHint = document.getElementById('details-hint');
+        const templatesHintText = document.getElementById('templates-hint-text');
+        const termsLabel = document.getElementById('label-terms');
+        const submitButton = document.getElementById('submit-button');
+
+        if (pageTitle) pageTitle.textContent = t.pageTitle;
+        if (leadText) leadText.textContent = t.leadText;
+        if (labelLanguage) labelLanguage.textContent = t.labelLanguage;
+        if (labelName) labelName.innerHTML = t.labelName + '<span class="required">*</span>';
+        if (labelEmail) labelEmail.innerHTML = t.labelEmail + '<span class="required">*</span>';
+        if (labelPhone) labelPhone.innerHTML = t.labelPhone + '<span class="required">*</span>';
+        if (labelRequestCallText) labelRequestCallText.textContent = t.labelRequestCall;
+        if (labelProjectType)
+          labelProjectType.innerHTML = t.labelProjectType + '<span class="required">*</span>';
+        if (optionSelect) optionSelect.textContent = t.optionSelect;
+
+        if (projectSelect) {
+          for (let i = 0; i < projectSelect.options.length; i++) {
+            const opt = projectSelect.options[i];
+            switch (opt.value) {
+              case 'clip5':
+                opt.textContent = t.optionClip5;
+                break;
+              case 'clip10':
+                opt.textContent = t.optionClip10;
+                break;
+              case 'movie20':
+                opt.textContent = t.optionMovie20;
+                break;
+              case 'restorePhoto':
+                opt.textContent = t.optionRestorePhoto;
+                break;
+              case 'photoToVideo':
+                opt.textContent = t.optionPhotoToVideo;
+                break;
+              case 'template':
+                opt.textContent = t.optionTemplate;
+                break;
+              default:
+                break;
+            }
+          }
+        }
+
+        if (detailsLabel)
+          detailsLabel.innerHTML = t.labelDetails + '<span class="required">*</span>';
+        if (detailsHint) detailsHint.textContent = t.detailsHint;
+        if (templatesHintText) templatesHintText.innerHTML = t.templatesHint;
+        if (termsLabel) termsLabel.innerHTML = t.termsLabel;
+        if (submitButton) submitButton.textContent = t.submitButton;
+      }
 
       if (projectSelect && templatesWrapper) {
         projectSelect.addEventListener('change', function () {
@@ -254,6 +434,15 @@
             templatesWrapper.style.display = 'none';
           }
         });
+      }
+
+      if (languageSelect) {
+        languageSelect.addEventListener('change', function () {
+          applyLanguage(this.value || 'en');
+        });
+        applyLanguage(languageSelect.value || 'en');
+      } else {
+        applyLanguage('en');
       }
 
       if (form) {

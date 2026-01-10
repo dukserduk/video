@@ -103,33 +103,45 @@
   </header>
   <main>
     <div class="container">
-      <h1>Terms and Conditions</h1>
-      <ol>
-        <li><strong>Service Overview</strong><br>
-        By placing an order with us, you agree to receive custom video or photo services, which may include editing, updates, and the creation of personalized gifts or keepsakes.</li>
-        <li><strong>Portfolio Use</strong><br>
-        During 2026, as part of our portfolio-building initiative, your ordered videos or photos may be featured in our public or private portfolio. By using our services at the discounted rate, you grant us permission to display your project for promotional purposes, unless you request otherwise in writing before your project begins.</li>
-        <li><strong>Payment and Pricing</strong><br>
-        Services are offered at a significantly reduced cost during the portfolio-building period. All prices will be clearly communicated before your project starts.</li>
-        <li><strong>Use of Artificial Intelligence (AI)</strong><br>
-        We use AI tools alongside our own creative skills and human interaction to enhance the quality of your project. All AI-generated content will be reviewed and refined by our team before delivery.</li>
-        <li><strong>Privacy and Confidentiality</strong><br>
-        We are committed to protecting your privacy. Any personal information or files you provide will only be used to fulfill your order and will not be shared with third parties, except as required for portfolio purposes (with your permission as stated above).</li>
-        <li><strong>Customer Responsibilities</strong><br>
-        You are responsible for providing accurate information and materials required for your project. You must ensure you have the rights to any media you submit for editing or inclusion.</li>
-        <li><strong>Revisions and Modifications</strong><br>
-        Each customer is entitled to request one update or modification to their project without any extra payment. Any additional requests for changes will be billed accordingly and considered on a case-by-case basis. We reserve the right to reject any request that is deemed inappropriate or cannot be reasonably fulfilled.</li>
-        <li><strong>Delivery and Refund Policy</strong><br>
-        Once you have accepted the final project, it will be delivered to you. After delivery and acceptance, no requests for refunds or money back will be allowed.</li>
-        <li><strong>Copyright</strong><br>
-        Final edited videos or photos may be used in our portfolio, but you retain personal usage rights. Commercial use by you or third parties may require additional agreement.</li>
-        <li><strong>Limitation of Liability</strong><br>
-        While we strive for excellence, we are not liable for any indirect or consequential damages resulting from the use or inability to use our services.</li>
-        <li><strong>Changes to Terms</strong><br>
-        We reserve the right to update these terms at any time. Continued use of our services after changes indicates your acceptance of the new terms.</li>
-      </ol>
-      <h2>Contact</h2>
-      <p>If you have any questions regarding these Terms and Conditions, please contact us before placing your order.</p>
+      <div style="max-width:240px;margin-bottom:1.5rem;">
+        <label for="languageSelect" id="label-language">Language</label>
+        <select id="languageSelect" name="languageSelect">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+        </select>
+      </div>
+
+      <div id="terms-body">
+        <h1 id="page-title">Terms and Conditions</h1>
+        <ol>
+          <li><strong>Service Overview</strong><br>
+          By placing an order with us, you agree to receive custom video or photo services, which may include editing, updates, and the creation of personalized gifts or keepsakes.</li>
+          <li><strong>Portfolio Use</strong><br>
+          During 2026, as part of our portfolio-building initiative, your ordered videos or photos may be featured in our public or private portfolio. By using our services at the discounted rate, you grant us permission to display your project for promotional purposes, unless you request otherwise in writing before your project begins.</li>
+          <li><strong>Payment and Pricing</strong><br>
+          Services are offered at a significantly reduced cost during the portfolio-building period. All prices will be clearly communicated before your project starts.</li>
+          <li><strong>Use of Artificial Intelligence (AI)</strong><br>
+          We use AI tools alongside our own creative skills and human interaction to enhance the quality of your project. All AI-generated content will be reviewed and refined by our team before delivery.</li>
+          <li><strong>Privacy and Confidentiality</strong><br>
+          We are committed to protecting your privacy. Any personal information or files you provide will only be used to fulfill your order and will not be shared with third parties, except as required for portfolio purposes (with your permission as stated above).</li>
+          <li><strong>Customer Responsibilities</strong><br>
+          You are responsible for providing accurate information and materials required for your project. You must ensure you have the rights to any media you submit for editing or inclusion.</li>
+          <li><strong>Revisions and Modifications</strong><br>
+          Each customer is entitled to request one update or modification to their project without any extra payment. Any additional requests for changes will be billed accordingly and considered on a case-by-case basis. We reserve the right to reject any request that is deemed inappropriate or cannot be reasonably fulfilled.</li>
+          <li><strong>Delivery and Refund Policy</strong><br>
+          Once you have accepted the final project, it will be delivered to you. After delivery and acceptance, no requests for refunds or money back will be allowed.</li>
+          <li><strong>Copyright</strong><br>
+          Final edited videos or photos may be used in our portfolio, but you retain personal usage rights. Commercial use by you or third parties may require additional agreement.</li>
+          <li><strong>Limitation of Liability</strong><br>
+          While we strive for excellence, we are not liable for any indirect or consequential damages resulting from the use or inability to use our services.</li>
+          <li><strong>Changes to Terms</strong><br>
+          We reserve the right to update these terms at any time. Continued use of our services after changes indicates your acceptance of the new terms.</li>
+        </ol>
+        <h2 id="contact-heading">Contact</h2>
+        <p id="contact-text">If you have any questions regarding these Terms and Conditions, please contact us before placing your order.</p>
+      </div>
     </div>
   </main>
 </main>
@@ -139,5 +151,164 @@
     <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
   </div>
 </footer>
+  <script>
+    (function () {
+      const languageSelect = document.getElementById('languageSelect');
+      const termsBody = document.getElementById('terms-body');
+      const labelLanguage = document.getElementById('label-language');
+
+      const translations = {
+        en: {
+          labelLanguage: 'Language',
+          body: `
+        <h1 id="page-title">Terms and Conditions</h1>
+        <ol>
+          <li><strong>Service Overview</strong><br>
+          By placing an order with us, you agree to receive custom video or photo services, which may include editing, updates, and the creation of personalized gifts or keepsakes.</li>
+          <li><strong>Portfolio Use</strong><br>
+          During 2026, as part of our portfolio-building initiative, your ordered videos or photos may be featured in our public or private portfolio. By using our services at the discounted rate, you grant us permission to display your project for promotional purposes, unless you request otherwise in writing before your project begins.</li>
+          <li><strong>Payment and Pricing</strong><br>
+          Services are offered at a significantly reduced cost during the portfolio-building period. All prices will be clearly communicated before your project starts.</li>
+          <li><strong>Use of Artificial Intelligence (AI)</strong><br>
+          We use AI tools alongside our own creative skills and human interaction to enhance the quality of your project. All AI-generated content will be reviewed and refined by our team before delivery.</li>
+          <li><strong>Privacy and Confidentiality</strong><br>
+          We are committed to protecting your privacy. Any personal information or files you provide will only be used to fulfill your order and will not be shared with third parties, except as required for portfolio purposes (with your permission as stated above).</li>
+          <li><strong>Customer Responsibilities</strong><br>
+          You are responsible for providing accurate information and materials required for your project. You must ensure you have the rights to any media you submit for editing or inclusion.</li>
+          <li><strong>Revisions and Modifications</strong><br>
+          Each customer is entitled to request one update or modification to their project without any extra payment. Any additional requests for changes will be billed accordingly and considered on a case-by-case basis. We reserve the right to reject any request that is deemed inappropriate or cannot be reasonably fulfilled.</li>
+          <li><strong>Delivery and Refund Policy</strong><br>
+          Once you have accepted the final project, it will be delivered to you. After delivery and acceptance, no requests for refunds or money back will be allowed.</li>
+          <li><strong>Copyright</strong><br>
+          Final edited videos or photos may be used in our portfolio, but you retain personal usage rights. Commercial use by you or third parties may require additional agreement.</li>
+          <li><strong>Limitation of Liability</strong><br>
+          While we strive for excellence, we are not liable for any indirect or consequential damages resulting from the use or inability to use our services.</li>
+          <li><strong>Changes to Terms</strong><br>
+          We reserve the right to update these terms at any time. Continued use of our services after changes indicates your acceptance of the new terms.</li>
+        </ol>
+        <h2 id="contact-heading">Contact</h2>
+        <p id="contact-text">If you have any questions regarding these Terms and Conditions, please contact us before placing your order.</p>
+          `,
+        },
+        es: {
+          labelLanguage: 'Idioma',
+          body: `
+        <h1 id="page-title">Términos y condiciones</h1>
+        <ol>
+          <li><strong>Descripción del servicio</strong><br>
+          Al realizar un pedido con nosotros, aceptas recibir servicios personalizados de vídeo o fotografía, que pueden incluir edición, actualizaciones y la creación de regalos o recuerdos personalizados.</li>
+          <li><strong>Uso en portafolio</strong><br>
+          Durante 2026, como parte de nuestra iniciativa de construcción de portafolio, tus vídeos o fotos encargados podrán aparecer en nuestro portafolio público o privado. Al utilizar nuestros servicios con la tarifa reducida, nos otorgas permiso para mostrar tu proyecto con fines promocionales, a menos que solicites lo contrario por escrito antes de que tu proyecto comience.</li>
+          <li><strong>Pago y precios</strong><br>
+          Los servicios se ofrecen a un costo significativamente reducido durante el período de construcción de portafolio. Todos los precios se comunicarán claramente antes de que empiece tu proyecto.</li>
+          <li><strong>Uso de inteligencia artificial (IA)</strong><br>
+          Utilizamos herramientas de IA junto con nuestras propias habilidades creativas e interacción humana para mejorar la calidad de tu proyecto. Todo el contenido generado por IA será revisado y ajustado por nuestro equipo antes de la entrega.</li>
+          <li><strong>Privacidad y confidencialidad</strong><br>
+          Nos comprometemos a proteger tu privacidad. Cualquier información personal o archivo que proporciones solo se utilizará para completar tu pedido y no se compartirá con terceros, salvo que sea necesario para fines de portafolio (con tu permiso, como se indica arriba).</li>
+          <li><strong>Responsabilidades del cliente</strong><br>
+          Eres responsable de proporcionar información y materiales precisos necesarios para tu proyecto. Debes asegurarte de tener los derechos sobre cualquier material que envíes para edición o inclusión.</li>
+          <li><strong>Revisiones y modificaciones</strong><br>
+          Cada cliente tiene derecho a solicitar una actualización o modificación de su proyecto sin pago adicional. Cualquier solicitud de cambio extra se facturará y se evaluará caso por caso. Nos reservamos el derecho de rechazar cualquier solicitud que se considere inapropiada o que no pueda cumplirse razonablemente.</li>
+          <li><strong>Entrega y política de reembolso</strong><br>
+          Una vez que hayas aceptado el proyecto final, este se te entregará. Después de la entrega y aceptación, no se aceptarán solicitudes de reembolsos ni devoluciones de dinero.</li>
+          <li><strong>Derechos de autor</strong><br>
+          Los vídeos o fotos editados finales podrán utilizarse en nuestro portafolio, pero tú conservas los derechos de uso personal. El uso comercial por tu parte o por terceros puede requerir un acuerdo adicional.</li>
+          <li><strong>Limitación de responsabilidad</strong><br>
+          Aunque nos esforzamos por ofrecer la máxima calidad, no somos responsables de daños indirectos o consecuentes que resulten del uso o la imposibilidad de uso de nuestros servicios.</li>
+          <li><strong>Cambios en los términos</strong><br>
+          Nos reservamos el derecho de actualizar estos términos en cualquier momento. El uso continuado de nuestros servicios después de los cambios indica tu aceptación de los nuevos términos.</li>
+        </ol>
+        <h2 id="contact-heading">Contacto</h2>
+        <p id="contact-text">Si tienes alguna pregunta sobre estos Términos y condiciones, ponte en contacto con nosotros antes de realizar tu pedido.</p>
+          `,
+        },
+        ru: {
+          labelLanguage: 'Язык',
+          body: `
+        <h1 id="page-title">Условия и положения</h1>
+        <ol>
+          <li><strong>Обзор услуг</strong><br>
+          Оформляя заказ у нас, вы соглашаетесь получить индивидуальные услуги по работе с видео или фотографиями, которые могут включать монтаж, обновления и создание персонализированных подарков или памятных материалов.</li>
+          <li><strong>Использование в портфолио</strong><br>
+          В течение 2026 года, в рамках инициативы по созданию портфолио, заказанные вами видео или фотографии могут быть размещены в нашем публичном или приватном портфолио. Пользуясь нашими услугами по сниженной цене, вы предоставляете нам разрешение показывать ваш проект в рекламных целях, если только не запросите иное в письменной форме до начала работы над проектом.</li>
+          <li><strong>Оплата и цены</strong><br>
+          Услуги предоставляются по значительно сниженной стоимости в период формирования портфолио. Все цены будут четко обозначены до начала вашего проекта.</li>
+          <li><strong>Использование искусственного интеллекта (ИИ)</strong><br>
+          Мы используем инструменты ИИ вместе с нашими собственными творческими навыками и личным взаимодействием, чтобы повысить качество вашего проекта. Весь контент, созданный с помощью ИИ, будет проверен и доработан нашей командой перед итоговой передачей.</li>
+          <li><strong>Конфиденциальность и защита данных</strong><br>
+          Мы стремимся защищать вашу конфиденциальность. Любая личная информация или файлы, которые вы предоставляете, будут использоваться только для выполнения вашего заказа и не будут переданы третьим лицам, за исключением случаев, необходимых для целей портфолио (с вашим разрешением, как описано выше).</li>
+          <li><strong>Обязанности клиента</strong><br>
+          Вы несете ответственность за предоставление точной информации и материалов, необходимых для вашего проекта. Вы должны убедиться, что имеете права на любой контент, который отправляете для редактирования или включения.</li>
+          <li><strong>Правки и изменения</strong><br>
+          Каждый клиент имеет право запросить одно обновление или изменение проекта без дополнительной оплаты. Любые последующие запросы на изменения будут оплачиваться отдельно и рассматриваться индивидуально. Мы оставляем за собой право отклонить любой запрос, который сочтем неподходящим или нереализуемым.</li>
+          <li><strong>Доставка и политика возврата</strong><br>
+          После того как вы приняли итоговый вариант проекта, он будет вам передан. После передачи и принятия проекта запросы на возврат средств или отмену оплаты не принимаются.</li>
+          <li><strong>Авторские права</strong><br>
+          Готовые отредактированные видео или фотографии могут использоваться в нашем портфолио, при этом вы сохраняете личные права на использование. Коммерческое использование с вашей стороны или со стороны третьих лиц может потребовать отдельного соглашения.</li>
+          <li><strong>Ограничение ответственности</strong><br>
+          Несмотря на наше стремление к высокому качеству, мы не несем ответственности за любые косвенные или последующие убытки, возникающие в результате использования или невозможности использования наших услуг.</li>
+          <li><strong>Изменения условий</strong><br>
+          Мы оставляем за собой право обновлять настоящие условия в любое время. Продолжение использования наших услуг после внесения изменений означает ваше согласие с новыми условиями.</li>
+        </ol>
+        <h2 id="contact-heading">Контакты</h2>
+        <p id="contact-text">Если у вас есть вопросы относительно этих Условий и положений, пожалуйста, свяжитесь с нами до оформления заказа.</p>
+          `,
+        },
+        uk: {
+          labelLanguage: 'Мова',
+          body: `
+        <h1 id="page-title">Умови та положення</h1>
+        <ol>
+          <li><strong>Опис послуг</strong><br>
+          Оформлюючи замовлення в нас, ви погоджуєтеся отримати індивідуальні послуги з обробки відео чи фотографій, які можуть включати монтаж, оновлення та створення персоналізованих подарунків або пам’ятних матеріалів.</li>
+          <li><strong>Використання в портфоліо</strong><br>
+          Протягом 2026 року, у межах ініціативи зі створення портфоліо, замовлені вами відео чи фотографії можуть бути розміщені в нашому публічному або приватному портфоліо. Користуючись нашими послугами за зниженою ціною, ви надаєте нам дозвіл показувати ваш проєкт у рекламних цілях, якщо лише не попросите про інше письмово до початку роботи над проєктом.</li>
+          <li><strong>Оплата та ціни</strong><br>
+          Послуги надаються за суттєво зниженою вартістю в період формування портфоліо. Усі ціни будуть чітко повідомлені до початку вашого проєкту.</li>
+          <li><strong>Використання штучного інтелекту (ШІ)</strong><br>
+          Ми використовуємо інструменти ШІ разом із власними творчими навичками та особистою взаємодією, щоб підвищити якість вашого проєкту. Увесь контент, створений за допомогою ШІ, буде перевірений і доопрацьований нашою командою перед остаточною передачею.</li>
+          <li><strong>Конфіденційність та захист даних</strong><br>
+          Ми прагнемо захищати вашу конфіденційність. Будь‑яка особиста інформація або файли, які ви надаєте, будуть використані лише для виконання вашого замовлення і не передаватимуться третім особам, окрім випадків, необхідних для цілей портфоліо (за вашої згоди, як описано вище).</li>
+          <li><strong>Обов’язки клієнта</strong><br>
+          Ви несете відповідальність за надання точної інформації та матеріалів, необхідних для вашого проєкту. Ви повинні переконатися, що маєте права на будь‑який контент, який надсилаєте для редагування чи включення.</li>
+          <li><strong>Правки та зміни</strong><br>
+          Кожен клієнт має право запросити одне оновлення або зміну свого проєкту без додаткової оплати. Будь‑які наступні запити на зміни будуть оплачуватися окремо і розглядатимуться індивідуально. Ми залишаємо за собою право відхилити будь‑який запит, який вважаємо недоречним або нереалістичним.</li>
+          <li><strong>Доставка та політика повернення</strong><br>
+          Після того як ви прийняли фінальну версію проєкту, він буде переданий вам. Після передачі та прийняття проєкту запити на повернення коштів або скасування оплати не приймаються.</li>
+          <li><strong>Авторські права</strong><br>
+          Готові відредаговані відео чи фотографії можуть використовуватися в нашому портфоліо, при цьому ви зберігаєте особисті права на використання. Комерційне використання з вашого боку або з боку третіх осіб може вимагати окремої угоди.</li>
+          <li><strong>Обмеження відповідальності</strong><br>
+          Попри наше прагнення до високої якості, ми не несемо відповідальності за будь‑які непрямі або побічні збитки, що виникають унаслідок використання чи неможливості використання наших послуг.</li>
+          <li><strong>Зміни умов</strong><br>
+          Ми залишаємо за собою право оновлювати ці умови в будь‑який час. Подальше використання наших послуг після внесення змін означає вашу згоду з новими умовами.</li>
+        </ol>
+        <h2 id="contact-heading">Контакти</h2>
+        <p id="contact-text">Якщо у вас є запитання щодо цих Умов та положень, будь ласка, зв’яжіться з нами перед оформленням замовлення.</p>
+          `,
+        },
+      };
+
+      function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+
+        if (labelLanguage && t.labelLanguage) {
+          labelLanguage.textContent = t.labelLanguage;
+        }
+        if (termsBody && t.body) {
+          termsBody.innerHTML = t.body;
+        }
+      }
+
+      if (languageSelect) {
+        languageSelect.addEventListener('change', function () {
+          applyLanguage(this.value || 'en');
+        });
+        applyLanguage(languageSelect.value || 'en');
+      } else {
+        applyLanguage('en');
+      }
+    })();
+  </script>
 </body>
 </html>
