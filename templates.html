@@ -4,124 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN STUDIO - Templates</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-      color: #222;
-      background-color: #ffe4e6;
-      background-image: url('assets/back.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    header {
-       background: #ffb3b3;
-      color: #f9fafb;
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-        <header>
-          <nav>
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-              <span style="font-weight:700;font-size:1.25rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
-            </div>
-            <div class="nav-links">
-              <a href="index.html">Home</a>
-              <a href="portfolio.html">Portfolio</a>
-              <a href="request.html">Request</a>
-              <a href="templates.html" class="active">Templates</a>
-            </div>
-          </nav>
-        </header>
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .nav-links a {
-      color: #111;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.95rem;
-    }
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-    .nav-links a.active {
-      color: #ffffff;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 0.15rem;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1.5rem 3rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #ff0000;
-    }
-    .lead {
-      color: #4b5563;
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-    }
-    .templates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .template-card {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-    }
-    .template-card h2 {
-      margin-top: 0;
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-    }
-    .preview-box {
-      border-radius: 0.5rem;
-      border: 2px dashed #d1d5db;
-      background-color: #e5e7eb;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body class="page-main page-templates">
   <header>
     <nav>
       
       <div class="nav-links">
         <div style="display:flex;align-items:center;gap:0.75rem;">
-          <span style="font-weight:700;font-size:1.25rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
+          <span style="font-weight:700;font-size:0.8rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
         </div>
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
@@ -136,70 +27,223 @@
 
   <main>
     <section class="card">
-      <h1>Templates</h1>
-      <p class="lead">
-        Below are placeholders for up to ten YouTube-based templates. Replace each box with a real YouTube embed or link and update the titles as needed.
+      <div class="language-module">
+        <label for="languageSelect" id="label-language">Language</label>
+        <select id="languageSelect" name="languageSelect">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+
+      <h1 id="page-title">Video &amp; Photo Templates</h1>
+      <p class="lead" id="lead-text">
+        Here you can browse ideas for future templates based on YouTube videos or our own examples. Each template can become the starting point for your custom project, which we then adjust to your story, photos, and music.
       </p>
       <div class="templates-grid">
         <article class="template-card">
-          <h2>Template 1</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your first YouTube template.</p>
+          <h2 id="t1-title">Template 1 – Baby &amp; Family</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t1-body">A warm, gentle slideshow style perfect for baby photos, family moments, and sweet gifts for loved ones.</p>
         </article>
         <article class="template-card">
-          <h2>Template 2</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your second YouTube template.</p>
+          <h2 id="t2-title">Template 2 – Wedding &amp; Love Story</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t2-body">Romantic, elegant transitions designed for weddings, engagements, and anniversary celebrations.</p>
         </article>
         <article class="template-card">
-          <h2>Template 3</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your third YouTube template.</p>
+          <h2 id="t3-title">Template 3 – Birthday &amp; Celebration</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t3-body">Fun, colorful animation suitable for birthdays, parties, and surprise videos for friends or family.</p>
         </article>
         <article class="template-card">
-          <h2>Template 4</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your fourth YouTube template.</p>
+          <h2 id="t4-title">Template 4 – Graduation &amp; Achievements</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t4-body">A clean, modern style to highlight school or career milestones, certificates, and awards.</p>
         </article>
         <article class="template-card">
-          <h2>Template 5</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your fifth YouTube template.</p>
+          <h2 id="t5-title">Template 5 – Travel Memories</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t5-body">Dynamic edits focused on landscapes, city shots, and vacation photos to remember your trips.</p>
         </article>
         <article class="template-card">
-          <h2>Template 6</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your sixth YouTube template.</p>
+          <h2 id="t6-title">Template 6 – Social Media Short</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t6-body">Vertical or square formats, ideal for Instagram, TikTok, or short promotional clips.</p>
         </article>
         <article class="template-card">
-          <h2>Template 7</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your seventh YouTube template.</p>
+          <h2 id="t7-title">Template 7 – Before &amp; After</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t7-body">Great for transformations: renovations, makeovers, progress photos, or creative projects.</p>
         </article>
         <article class="template-card">
-          <h2>Template 8</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your eighth YouTube template.</p>
+          <h2 id="t8-title">Template 8 – Business Presentation</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t8-body">A professional template for simple company overviews, service explanations, or pitch decks in video form.</p>
         </article>
         <article class="template-card">
-          <h2>Template 9</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your ninth YouTube template.</p>
+          <h2 id="t9-title">Template 9 – Photo Restoration Story</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t9-body">Focused on restoring old or damaged photos and presenting them in a touching, narrative video.</p>
         </article>
         <article class="template-card">
-          <h2>Template 10</h2>
-          <div class="preview-box">YouTube video placeholder</div>
-          <p>Use this slot for your tenth YouTube template.</p>
+          <h2 id="t10-title">Template 10 – Custom Concept</h2>
+          <div class="preview-box">Future YouTube preview or sample video</div>
+          <p id="t10-body">If you have a special idea that does not fit any category, we can design a custom template just for you.</p>
         </article>
       </div>
     </section>
   </main>
-  </main>
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
     <div style="max-width:960px;margin:0 auto;">
       <a href="terms.html" style="color:#3b82f6;text-decoration:underline;">Terms and Conditions</a>
-      <span style="margin-left:1.5rem;">&copy; 22026 MakeMeMovie.org. All rights reserved.</span>
+      <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
     </div>
   </footer>
+  <script>
+    (function () {
+      const languageSelect = document.getElementById('languageSelect');
+      const labelLanguage = document.getElementById('label-language');
+      const titleEl = document.getElementById('page-title');
+      const leadEl = document.getElementById('lead-text');
+      const ids = [
+        ['t1-title', 't1-body'],
+        ['t2-title', 't2-body'],
+        ['t3-title', 't3-body'],
+        ['t4-title', 't4-body'],
+        ['t5-title', 't5-body'],
+        ['t6-title', 't6-body'],
+        ['t7-title', 't7-body'],
+        ['t8-title', 't8-body'],
+        ['t9-title', 't9-body'],
+        ['t10-title', 't10-body'],
+      ];
+
+      const elements = ids.map(([titleId, bodyId]) => ({
+        title: document.getElementById(titleId),
+        body: document.getElementById(bodyId),
+      }));
+
+      const translations = {
+        en: {
+          labelLanguage: 'Language',
+          title: 'Video & Photo Templates',
+          lead:
+            'Here you can browse ideas for future templates based on YouTube videos or our own examples. Each template can become the starting point for your custom project, which we then adjust to your story, photos, and music.',
+          items: [
+            ['Template 1 – Baby & Family', 'A warm, gentle slideshow style perfect for baby photos, family moments, and sweet gifts for loved ones.'],
+            ['Template 2 – Wedding & Love Story', 'Romantic, elegant transitions designed for weddings, engagements, and anniversary celebrations.'],
+            ['Template 3 – Birthday & Celebration', 'Fun, colorful animation suitable for birthdays, parties, and surprise videos for friends or family.'],
+            ['Template 4 – Graduation & Achievements', 'A clean, modern style to highlight school or career milestones, certificates, and awards.'],
+            ['Template 5 – Travel Memories', 'Dynamic edits focused on landscapes, city shots, and vacation photos to remember your trips.'],
+            ['Template 6 – Social Media Short', 'Vertical or square formats, ideal for Instagram, TikTok, or short promotional clips.'],
+            ['Template 7 – Before & After', 'Great for transformations: renovations, makeovers, progress photos, or creative projects.'],
+            ['Template 8 – Business Presentation', 'A professional template for simple company overviews, service explanations, or pitch decks in video form.'],
+            ['Template 9 – Photo Restoration Story', 'Focused on restoring old or damaged photos and presenting them in a touching, narrative video.'],
+            ['Template 10 – Custom Concept', 'If you have a special idea that does not fit any category, we can design a custom template just for you.'],
+          ],
+        },
+        es: {
+          labelLanguage: 'Idioma',
+          title: 'Plantillas de vídeo y foto',
+          lead:
+            'Aquí puedes ver ideas para futuras plantillas basadas en vídeos de YouTube o en nuestros propios ejemplos. Cada plantilla puede ser el punto de partida de tu proyecto personalizado, que luego adaptamos a tu historia, tus fotos y tu música.',
+          items: [
+            ['Plantilla 1 – Bebé y familia', 'Estilo de presentación suave y cálido, perfecto para fotos de bebés, momentos en familia y regalos cariñosos para seres queridos.'],
+            ['Plantilla 2 – Boda e historia de amor', 'Transiciones románticas y elegantes, pensadas para bodas, compromisos y aniversarios.'],
+            ['Plantilla 3 – Cumpleaños y celebración', 'Animaciones divertidas y coloridas para cumpleaños, fiestas y vídeos sorpresa para amigos o familia.'],
+            ['Plantilla 4 – Graduación y logros', 'Un estilo moderno y limpio para resaltar logros escolares o profesionales, diplomas y premios.'],
+            ['Plantilla 5 – Recuerdos de viaje', 'Montajes dinámicos centrados en paisajes, ciudades y fotos de vacaciones para revivir tus viajes.'],
+            ['Plantilla 6 – Vídeo corto para redes', 'Formatos verticales o cuadrados, ideales para Instagram, TikTok o pequeños clips promocionales.'],
+            ['Plantilla 7 – Antes y después', 'Perfecta para mostrar transformaciones: reformas, cambios de imagen, fotos de progreso o proyectos creativos.'],
+            ['Plantilla 8 – Presentación empresarial', 'Plantilla profesional para presentar tu empresa, explicar servicios o crear un pitch en formato vídeo.'],
+            ['Plantilla 9 – Historia de restauración de fotos', 'Centrada en la restauración de fotos antiguas o dañadas y su presentación en un vídeo emotivo.'],
+            ['Plantilla 10 – Concepto a medida', 'Si tienes una idea especial que no encaja en ninguna categoría, podemos diseñar una plantilla solo para ti.'],
+          ],
+        },
+        ru: {
+          labelLanguage: 'Язык',
+          title: 'Шаблоны видео и фото',
+          lead:
+            'Здесь вы можете посмотреть идеи будущих шаблонов, основанных на роликах YouTube или наших собственных примерах. Каждый шаблон может стать отправной точкой для вашего проекта, который мы затем адаптируем под вашу историю, фотографии и музыку.',
+          items: [
+            ['Шаблон 1 – Малыш и семья', 'Тёплый, мягкий слайд‑шоу, идеально подходящий для детских и семейных фотографий и трогательных подарков близким.'],
+            ['Шаблон 2 – Свадьба и история любви', 'Романтичные и элегантные переходы для свадеб, помолвок и годовщин.'],
+            ['Шаблон 3 – День рождения и праздник', 'Весёлая и яркая анимация для дней рождения, вечеринок и сюрпризов для друзей или семьи.'],
+            ['Шаблон 4 – Выпускной и достижения', 'Чистый, современный стиль, чтобы подчеркнуть учебные и карьерные успехи, дипломы и награды.'],
+            ['Шаблон 5 – Путешествия', 'Динамичный монтаж с акцентом на пейзажи, города и фотографии из поездок.'],
+            ['Шаблон 6 – Короткое видео для соцсетей', 'Вертикальные или квадратные форматы, идеально подходящие для Instagram, TikTok и коротких промо‑роликов.'],
+            ['Шаблон 7 – До и после', 'Подходит для демонстрации преобразований: ремонтов, преображений, фото «до/после» и творческих проектов.'],
+            ['Шаблон 8 – Бизнес‑презентация', 'Профессиональный шаблон для обзора компании, объяснения услуг или видео‑презентации.'],
+            ['Шаблон 9 – История восстановления фотографий', 'Сфокусирован на восстановлении старых или повреждённых фотографий и их подаче в трогательном видео‑формате.'],
+            ['Шаблон 10 – Индивидуальная концепция', 'Если у вас есть особая идея вне категорий, мы можем разработать уникальный шаблон специально для вас.'],
+          ],
+        },
+        uk: {
+          labelLanguage: 'Мова',
+          title: 'Шаблони для відео та фото',
+          lead:
+            'Тут ви можете переглянути ідеї майбутніх шаблонів, створених на основі відео з YouTube або наших власних прикладів. Кожен шаблон може стати стартовою точкою для вашого персонального проєкту, який ми адаптуємо під вашу історію, фото та музику.',
+          items: [
+            ['Шаблон 1 – Дитина та сім’я', 'Тепле та ніжне слайд‑шоу, ідеальне для дитячих і сімейних фотографій та зворушливих подарунків рідним.'],
+            ['Шаблон 2 – Весілля та історія кохання', 'Романтичні, елегантні переходи для весіль, заручин і річниць.'],
+            ['Шаблон 3 – День народження та свято', 'Весела, яскрава анімація для днів народження, вечірок і сюрприз‑відео для друзів чи родини.'],
+            ['Шаблон 4 – Випуск і досягнення', 'Сучасний, лаконічний стиль для підкреслення навчальних або кар’єрних успіхів, дипломів і нагород.'],
+            ['Шаблон 5 – Спогади про подорожі', 'Динамічний монтаж із фокусом на пейзажах, містах і фотографіях з подорожей.'],
+            ['Шаблон 6 – Коротке відео для соцмереж', 'Вертикальні або квадратні формати, ідеальні для Instagram, TikTok чи коротких промо‑роликів.'],
+            ['Шаблон 7 – До і після', 'Чудово підходить для показу змін: ремонту, перевтілень, фото прогресу чи творчих проєктів.'],
+            ['Шаблон 8 – Бізнес‑презентація', 'Професійний шаблон для простих презентацій компанії, пояснення послуг чи відео‑пітчів.'],
+            ['Шаблон 9 – Історія відновлення фото', 'Зосереджений на відновленні старих або пошкоджених фотографій і подачі їх у зворушливому відео.'],
+            ['Шаблон 10 – Індивідуальна концепція', 'Якщо у вас є особлива ідея, що не вписується в категорії, ми можемо створити унікальний шаблон саме для вас.'],
+          ],
+        },
+        zh: {
+          labelLanguage: '语言',
+          title: '视频与照片模板',
+          lead:
+            '在这里你可以浏览一些未来计划使用的模板构想，这些模板基于 YouTube 视频或我们的自制示例。每个模板都可以作为你的定制项目的起点，我们会根据你的故事、照片和音乐进行调整。',
+          items: [
+            ['模板 1 – 宝宝与家庭', '温柔、暖心的幻灯片形式，非常适合宝宝照片、家庭时刻，以及送给亲友的特别礼物。'],
+            ['模板 2 – 婚礼与爱情故事', '浪漫而优雅的转场，适用于婚礼、订婚和纪念日视频。'],
+            ['模板 3 – 生日与庆祝', '色彩丰富又有趣的动画风格，适合生日派对和给亲友的惊喜视频。'],
+            ['模板 4 – 毕业与成就', '简洁、现代的风格，用来突出学习或事业上的重要里程碑、证书和奖项。'],
+            ['模板 5 – 旅行回忆', '以风景、城市和度假照片为主的动感剪辑，帮你重温旅途中的精彩瞬间。'],
+            ['模板 6 – 社交媒体短视频', '适用于 Instagram、TikTok 等平台的竖屏或方形短视频模板，非常适合做推广。'],
+            ['模板 7 – 对比前后', '适合展示改造类内容：装修、改造、形象变化、进度记录等。'],
+            ['模板 8 – 商业演示', '专业的企业展示模板，用于公司简介、服务说明或演示型视频。'],
+            ['模板 9 – 照片修复故事', '专注于修复老旧或受损照片，并通过视频的方式讲述一个温馨故事。'],
+            ['模板 10 – 自定义概念', '如果你有特别的想法不属于以上类别，我们可以为你设计完全定制的专属模板。'],
+          ],
+        },
+      };
+
+      function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+
+        if (labelLanguage && t.labelLanguage) labelLanguage.textContent = t.labelLanguage;
+        if (titleEl && t.title) titleEl.textContent = t.title;
+        if (leadEl && t.lead) leadEl.textContent = t.lead;
+
+        if (t.items && elements.length === t.items.length) {
+          for (let i = 0; i < elements.length; i++) {
+            const el = elements[i];
+            const [titleText, bodyText] = t.items[i];
+            if (el.title) el.title.textContent = titleText;
+            if (el.body) el.body.textContent = bodyText;
+          }
+        }
+      }
+
+      if (languageSelect) {
+        languageSelect.addEventListener('change', function () {
+          applyLanguage(this.value || 'en');
+        });
+        applyLanguage(languageSelect.value || 'en');
+      }
+    })();
+  </script>
 </body>
 </html>

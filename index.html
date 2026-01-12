@@ -4,80 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN STUDIO</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-      color: #222;
-      background-color: #ffe4e6;
-      background-image: url('assets/back.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    header {
-      background: #ffb3b3;
-      color: #f9fafb;
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .nav-links a {
-        color: #111;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.95rem;
-    }
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-    .nav-links a.active {
-      color: #ffffff;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 0.15rem;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1.5rem 3rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #ff0000;
-    }
-    .lead {
-      color: #4b5563;
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body class="page-main page-home">
   <header>
     <nav>
         <div style="display:flex;align-items:center;gap:0.75rem;">
-          <span style="font-weight:700;font-size:1.25rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
+          <span style="font-weight:700;font-size:0.8rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
         </div>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
@@ -93,18 +26,29 @@
 
   <main>
     <section class="card">
-      <h1>Welcome To Our Home</h1>
-      <p class="lead">
-        Hello and welcome! If you’re looking for a cute gift, a keepsake to remember your baby growing up, or something special for a wedding or other event, you’re in the right place. We create video gifts, help you capture memories from any event, and can edit or update your old videos or photos.
+      <div class="language-module">
+        <label for="languageSelect" id="label-language">Language</label>
+        <select id="languageSelect" name="languageSelect">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+
+      <h1 id="page-title">Bring Your Stories To Life</h1>
+      <p class="lead" id="lead-text">
+        Welcome to our VIDEO&PHOTO DESIGN STUDIO. Whether you want a sweet gift, a keepsake to remember your baby growing up, or something special for a wedding, birthday, or other event, we help you turn your memories into beautiful videos and photos.
       </p>
-      <p>
-        During 2026, we are building our portfolio, which means you’ll receive our services at a very low cost in exchange for your permission to feature your ordered video or photo in our portfolio.
+      <p id="home-p1">
+        During 2026 we are actively building our portfolio. This means you can receive high‑quality, custom work at a very friendly price in exchange for allowing us to feature your finished video or photo project in our portfolio.
       </p>
-      <p>
-        We combine the power of AI with our skills and personal touch to make every creation the best it can be.
+      <p id="home-p2">
+        We combine modern AI tools with careful human editing, storytelling, and personal communication so that every project feels thoughtful, polished, and truly yours.
       </p>
-      <p>
-        To get started, please visit the <a href="request.html">Request</a> page and fill out the form.
+      <p id="home-p3">
+        When you are ready, please visit the <a href="request.html">Request</a> page and fill out the form. We will review your ideas and get back to you with the next steps.
       </p>
     </section>
   </main>
@@ -114,5 +58,98 @@
       <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
     </div>
   </footer>
+  <script>
+    (function () {
+      const languageSelect = document.getElementById('languageSelect');
+      const labelLanguage = document.getElementById('label-language');
+      const titleEl = document.getElementById('page-title');
+      const leadEl = document.getElementById('lead-text');
+      const p1El = document.getElementById('home-p1');
+      const p2El = document.getElementById('home-p2');
+      const p3El = document.getElementById('home-p3');
+
+      const translations = {
+        en: {
+          labelLanguage: 'Language',
+          title: 'Bring Your Stories To Life',
+          lead:
+            'Welcome to our VIDEO&PHOTO DESIGN STUDIO. Whether you want a sweet gift, a keepsake to remember your baby growing up, or something special for a wedding, birthday, or other event, we help you turn your memories into beautiful videos and photos.',
+          p1:
+            'During 2026 we are actively building our portfolio. This means you can receive high‑quality, custom work at a very friendly price in exchange for allowing us to feature your finished video or photo project in our portfolio.',
+          p2:
+            'We combine modern AI tools with careful human editing, storytelling, and personal communication so that every project feels thoughtful, polished, and truly yours.',
+          p3:
+            'When you are ready, please visit the <a href="request.html">Request</a> page and fill out the form. We will review your ideas and get back to you with the next steps.',
+        },
+        es: {
+          labelLanguage: 'Idioma',
+          title: 'Da vida a tus recuerdos',
+          lead:
+            'Bienvenido a nuestro VIDEO&PHOTO DESIGN STUDIO. Ya sea un regalo especial, un recuerdo para ver crecer a tu bebé, o algo único para una boda, cumpleaños u otro evento, te ayudamos a transformar tus memorias en vídeos y fotos preciosos.',
+          p1:
+            'Durante 2026 estamos construyendo activamente nuestro portafolio. Esto significa que puedes recibir un trabajo personalizado de alta calidad a un precio muy amigable, a cambio de permitirnos mostrar tu proyecto en nuestro portafolio.',
+          p2:
+            'Combinamos herramientas modernas de IA con edición humana cuidadosa, narración y comunicación personal, para que cada proyecto se sienta pensado, pulido y verdaderamente tuyo.',
+          p3:
+            'Cuando estés listo, visita la página <a href="request.html">Solicitud</a> y completa el formulario. Revisaremos tus ideas y te responderemos con los siguientes pasos.',
+        },
+        ru: {
+          labelLanguage: 'Язык',
+          title: 'Оживите свои истории',
+          lead:
+            'Добро пожаловать в наш VIDEO&PHOTO DESIGN STUDIO. Хотите ли вы сделать трогательный подарок, сохранить воспоминания о взрослении малыша или создать что‑то особенное к свадьбе, дню рождения или другому событию — мы поможем превратить ваши воспоминания в красивые видео и фотографии.',
+          p1:
+            'В течение 2026 года мы активно наполняем своё портфолио. Поэтому вы можете получить качественную индивидуальную работу по очень выгодной цене в обмен на разрешение показать готовый проект в нашем портфолио.',
+          p2:
+            'Мы сочетаем современные инструменты ИИ с аккуратной ручной обработкой, сторителлингом и личным общением, чтобы каждый проект был продуманным, аккуратным и по‑настоящему вашим.',
+          p3:
+            'Когда будете готовы, перейдите на страницу <a href="request.html">Запрос</a> и заполните форму. Мы изучим ваши идеи и свяжемся с вами для согласования следующих шагов.',
+        },
+        uk: {
+          labelLanguage: 'Мова',
+          title: 'Втілюйте свої історії в життя',
+          lead:
+            'Ласкаво просимо до нашої VIDEO&PHOTO DESIGN STUDIO. Якщо ви хочете зробити особливий подарунок, зберегти спогади про зростання дитини або створити щось особливе до весілля, дня народження чи іншої події — ми допоможемо перетворити ваші спогади на красиві відео та фото.',
+          p1:
+            'Протягом 2026 року ми активно наповнюємо наше портфоліо. Тому ви можете отримати високоякісну індивідуальну роботу за дуже приємною ціною в обмін на дозвіл показувати ваш готовий проєкт у нашому портфоліо.',
+          p2:
+            'Ми поєднуємо сучасні інструменти ШІ з уважним ручним монтажем, сторителінгом та особистим спілкуванням, щоб кожен проєкт був продуманим, охайним і по‑справжньому вашим.',
+          p3:
+            'Коли будете готові, перейдіть на сторінку <a href="request.html">Запит</a> і заповніть форму. Ми переглянемо ваші ідеї та надамо подальші кроки.',
+        },
+        zh: {
+          labelLanguage: '语言',
+          title: '让你的故事动起来',
+          lead:
+            '欢迎来到我们的 VIDEO&PHOTO DESIGN STUDIO。不论是送给亲友的小礼物、记录宝宝成长的留念，还是为婚礼、生日或其他活动制作特别的视频或照片，我们都可以帮你把珍贵回忆变成美丽的作品。',
+          p1:
+            '在 2026 年期间，我们正在积极丰富作品集。因此，如果你愿意允许我们在作品集中展示为你制作的视频或照片，就可以用非常优惠的价格获得高质量的定制服务。',
+          p2:
+            '我们将现代 AI 工具与细致的人工剪辑、故事设计和个性化沟通结合起来，让每一个项目都显得用心、精致，而且真正属于你。',
+          p3:
+            '当你准备好时，可以前往 <a href="request.html">项目请求</a> 页面并填写表单。我们会查看你的想法，并与您联系下一步计划。',
+        },
+      };
+
+      function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+
+        if (labelLanguage && t.labelLanguage) labelLanguage.textContent = t.labelLanguage;
+        if (titleEl && t.title) titleEl.textContent = t.title;
+        if (leadEl && t.lead) leadEl.textContent = t.lead;
+        if (p1El && t.p1) p1El.textContent = t.p1;
+        if (p2El && t.p2) p2El.textContent = t.p2;
+        if (p3El && t.p3) p3El.innerHTML = t.p3;
+      }
+
+      if (languageSelect) {
+        languageSelect.addEventListener('change', function () {
+          applyLanguage(this.value || 'en');
+        });
+        applyLanguage(languageSelect.value || 'en');
+      }
+    })();
+  </script>
 </body>
 </html>

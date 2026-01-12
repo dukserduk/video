@@ -2,158 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
   <title>DESIGN STUDIO - Request</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-      color: #222;
-      background-color: #ffe4e6;
-      background-image: url('assets/back.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    header {
-      background: #ffb3b3;
-      color: #f9fafb;
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .nav-links a {
-      color: #111;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.95rem;
-    }
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-    .nav-links a.active {
-      color: #ffffff;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 0.15rem;
-    }
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1.5rem 3rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #ff0000;
-    }
-    .lead {
-      color: #4b5563;
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-    form {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-    .required {
-      color: #dc2626;
-      margin-left: 0.1rem;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 0.5rem 0.6rem;
-      border-radius: 0.5rem;
-      border: 1px solid #d1d5db;
-      font: inherit;
-      color: inherit;
-      background-color: #f9fafb;
-    }
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    .inline {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .hint {
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 0.15rem;
-    }
-    .templates-link {
-      display: none;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
-    .templates-link a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-    .templates-link a:hover {
-      text-decoration: underline;
-    }
-    button[type="submit"] {
-      margin-top: 0.5rem;
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      font: inherit;
-      background-color: #3b82f6;
-      color: #ffffff;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background-color: #2563eb;
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      .nav-links a {
-        margin-left: 0;
-        margin-right: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body class="page-main page-request">
   <header>
     <nav>
       <div style="display:flex;align-items:center;gap:0.75rem;">
-          <span style="font-weight:700;font-size:1.25rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
+          <span style="font-weight:700;font-size:0.8rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
         </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -169,13 +26,14 @@
 
   <main>
     <section>
-      <div class="form-group" style="max-width:240px;margin-bottom:1.5rem;">
+      <div class="form-group language-module">
         <label for="languageSelect" id="label-language">Language</label>
         <select id="languageSelect" name="languageSelect">
           <option value="en" selected>English</option>
           <option value="es">Español</option>
           <option value="ru">Русский</option>
           <option value="uk">Українська</option>
+          <option value="zh">中文</option>
         </select>
       </div>
 
@@ -240,10 +98,6 @@
       <noscript>
         <p class="hint">Note: JavaScript is required for automatic email composition and showing the Templates link when relevant.</p>
       </noscript>
-    </section>
-  </main>
-  </main>
-  <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
     <div style="max-width:960px;margin:0 auto;">
       <a href="terms.html" style="color:#3b82f6;text-decoration:underline;">Terms and Conditions</a>
       <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
@@ -357,6 +211,31 @@
           termsLabel:
             'Я ознайомився з <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Умовами та правилами</a><span class="required">*</span>',
           submitButton: 'Надіслати',
+        },
+        zh: {
+          pageTitle: '提交项目请求',
+          leadText:
+            '请填写此表单，告诉我们您希望我们为您制作什么。除特别说明外，所有字段为必填。',
+          labelLanguage: '语言',
+          labelName: '您的姓名',
+          labelEmail: '您的邮箱',
+          labelPhone: '您的电话',
+          labelRequestCall: '请电话联系我',
+          labelProjectType: '请选择要制作的内容',
+          optionSelect: '请选择',
+          optionClip5: '视频短片（最长 5 分钟）',
+          optionClip10: '视频短片（最长 10 分钟）',
+          optionMovie20: '影片（最长 20 分钟）',
+          optionRestorePhoto: '修复老照片',
+          optionPhotoToVideo: '照片制作成视频',
+          optionTemplate: '根据模板制作*',
+          labelDetails: '请说明此项目的具体要求',
+          detailsHint: '最多 2000 字符。',
+          templatesHint:
+            '* 如果使用模板，请先在我们的 <a href="templates.html">模板</a> 页面浏览可选方案。',
+          termsLabel:
+            '我已阅读 <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">条款与条件</a><span class="required">*</span>',
+          submitButton: '提交',
         },
       };
 

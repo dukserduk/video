@@ -4,112 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DESIGN STUDIO - Terms and Conditions</title>
-  <style>
-    body {
-      background: #f5f5f7;
-      color: #4b5563;
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('assets/back.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    header {
-      background: #ffb3b3;
-      color: #fff;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 2rem;
-    }
-    .brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-      margin-left: 2rem;
-    }
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-left: 2rem;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .nav-links a {
-      color: #111;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a.active, .nav-links a:hover {
-      color: #3b82f6;
-    }
-    h1 {
-      color: #ff0000;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    h2 {
-      color: #3b82f6;
-      margin-top: 2rem;
-    }
-    ol {
-      padding-left: 1.2em;
-    }
-    li {
-      margin-bottom: 1em;
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 1rem;
-        margin: 1rem;
-      }
-      .brand, nav {
-        margin-left: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body class="page-doc page-terms">
   <header>
-    <div style="display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto;">
+    <div class="nav-wrapper">
       <div style="display:flex;align-items:center;gap:0.75rem;">
-    	      <span style="font-weight:700;font-size:1.25rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
+		      <span style="font-weight:700;font-size:0.8rem;color:#fff;">VIDEO&PHOTO DESIGN STUDIO</span>
       </div>
       <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="request.html">Request</a>
-        <a href="templates.html">Templates</a>
-        <a href="terms.html" class="active">Terms</a>
-        <a href="business.html">Business</a>
-        <a href="help.html">Help</a>
-      </nav>
-    </div>
+		      <a href="index.html">Home</a>
+		      <a href="portfolio.html">Portfolio</a>
+		      <a href="request.html">Request</a>
+		      <a href="templates.html">Templates</a>
+		      <a href="terms.html" class="active">Terms</a>
+		      <a href="business.html">Business</a>
+		      <a href="help.html">Help</a>
+	    </nav>
+	  </div>
   </header>
   <main>
     <div class="container">
-      <div style="max-width:240px;margin-bottom:1.5rem;">
+      <div class="language-module">
         <label for="languageSelect" id="label-language">Language</label>
         <select id="languageSelect" name="languageSelect">
           <option value="en" selected>English</option>
           <option value="es">Español</option>
           <option value="ru">Русский</option>
           <option value="uk">Українська</option>
+          <option value="zh">中文</option>
         </select>
       </div>
 
@@ -144,7 +67,7 @@
       </div>
     </div>
   </main>
-</main>
+  </main>
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
   <div style="max-width:960px;margin:0 auto;">
     <a href="terms.html" style="color:#3b82f6;text-decoration:underline;">Terms and Conditions</a>
@@ -187,7 +110,8 @@
           We reserve the right to update these terms at any time. Continued use of our services after changes indicates your acceptance of the new terms.</li>
         </ol>
         <h2 id="contact-heading">Contact</h2>
-        <p id="contact-text">If you have any questions regarding these Terms and Conditions, please contact us before placing your order.</p>
+        <p id="contact-text">If you have any questions regarding these Terms and Conditions, please contact us before placing your order.
+          <br> You can reach us by phone: 925-644-3385</p>
           `,
         },
         es: {
@@ -284,6 +208,38 @@
         </ol>
         <h2 id="contact-heading">Контакти</h2>
         <p id="contact-text">Якщо у вас є запитання щодо цих Умов та положень, будь ласка, зв’яжіться з нами перед оформленням замовлення.</p>
+          `,
+        },
+        zh: {
+          labelLanguage: '语言',
+          body: `
+        <h1 id="page-title">条款与条件</h1>
+        <ol>
+          <li><strong>服务概述</strong><br>
+          当您向我们下单时，即表示您同意接收我们的定制视频或照片服务，其中可能包括剪辑、更新以及为您制作个性化礼物或纪念作品。</li>
+          <li><strong>作品用于作品集</strong><br>
+          在 2026 年期间，作为我们建立作品集计划的一部分，您订购的视频或照片可能会展示在我们的公开或非公开作品集中。通过以优惠价格使用我们的服务，您同意我们将您的项目用于宣传展示，除非您在项目开始前以书面形式提出不予展示的要求。</li>
+          <li><strong>付款与价格</strong><br>
+          在作品集建设阶段，我们以大幅优惠的价格提供服务。所有价格将在项目开始前向您清晰说明。</li>
+          <li><strong>人工智能 (AI) 的使用</strong><br>
+          我们会在创作过程中结合使用 AI 工具与人工创意与沟通，以提升成品质量。所有由 AI 生成的内容都会在交付前由我们的团队进行检查和润色。</li>
+          <li><strong>隐私与保密</strong><br>
+          我们重视您的隐私。您提供的任何个人信息或素材仅会用于完成您的订单，不会与第三方共享，除非出于作品集展示的需要且符合上述约定。</li>
+          <li><strong>客户责任</strong><br>
+          您有责任向我们提供完成项目所需的准确信息和素材，并确保您对提交的所有媒体文件拥有相应的使用权。</li>
+          <li><strong>修改与调整</strong><br>
+          每位客户都有权在不额外付费的前提下请求一次项目更新或修改。更多的修改请求将视具体情况单独计费，并由我们酌情决定是否接受。对于不合理或无法实现的请求，我们保留拒绝的权利。</li>
+          <li><strong>交付与退款政策</strong><br>
+          在您确认最终成品后，我们会将项目交付给您。交付并确认后，将不再接受任何退款或退费请求。</li>
+          <li><strong>版权</strong><br>
+          最终编辑完成的视频或照片可以用于我们的作品集展示，但您保留个人使用权。如需商业用途，您或第三方可能需要与我们另行签署协议。</li>
+          <li><strong>责任限制</strong><br>
+          尽管我们会尽力提供高质量服务，但对于因使用或无法使用本服务而产生的任何间接或后果性损失，我们概不承担责任。</li>
+          <li><strong>条款变更</strong><br>
+          我们保留随时更新本条款的权利。您在条款更新后继续使用我们的服务，即视为接受最新条款。</li>
+        </ol>
+        <h2 id="contact-heading">联系方式</h2>
+        <p id="contact-text">如果您对本条款与条件有任何疑问，请在下单前与我们联系。</p>
           `,
         },
       };
