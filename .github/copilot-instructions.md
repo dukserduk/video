@@ -1,41 +1,49 @@
 
-# GitHub Copilot Instructions for this Repo
+## GitHub Copilot Instructions for this Repo
 
-## 1. Big Picture & Architecture
-- Static brochure/portfolio site for "DESIGN STUDIO Dukserduk" with multiple standalone HTML pages: [index.html](index.html) (home), [portfolio.html](portfolio.html), [request.html](request.html), [templates.html](templates.html), [terms.html](terms.html), and [business.html](business.html).
-- Each page is self-contained (own `<head>`, meta viewport, inline `<style>`). There is **no build system or backend**; everything is pure HTML/CSS with a small inline JavaScript snippet.
-- The only JavaScript is in [request.html](request.html): a vanilla script that shows/hides a templates hint and builds a `mailto:` URL from the form, then redirects `window.location.href` to open the user’s email client.
-- Treat this as a static site; do not introduce frameworks or bundlers unless explicitly requested.
+### 1. Big Picture & Architecture
+- Static brochure/portfolio site for a small "VIDEO&PHOTO DESIGN STUDIO" with standalone HTML pages: [index.html](../index.html) (home), [portfolio.html](../portfolio.html), [request.html](../request.html), [templates.html](../templates.html), [terms.html](../terms.html), [business.html](../business.html), and [help.html](../help.html).
+- All pages are pure HTML/CSS with inline scripts; there is **no build system or backend**. Pages are intended to open directly in a browser or via a simple static server.
+- Shared styling lives in [assets/styles.css](../assets/styles.css); do not introduce frameworks or bundlers unless explicitly requested.
 
-## 2. Layout, Patterns & Conventions
-- Shared look and feel: pink header background `#ffb3b3`, light background (`#ffe4e6` on main pages, `#f5f5f7` on terms/business), system-ui font, centered content with `max-width: 960px`.
-- Header + nav pattern is repeated across pages (brand text + nav links for Home/Portfolio/Request/Templates/Terms/Business). When adding pages or changing navigation, update all headers/footers to stay consistent.
-- On the home page [index.html](index.html), use `.card` sections for key content blocks.
-- On the portfolio page [portfolio.html](portfolio.html), use `.projects` + `.project-card` for grid items; follow the spacing and typography already used there when adding projects.
-- On the templates page [templates.html](templates.html), use `.templates-grid` + `.template-card` + `.preview-box` when adding new template slots or real YouTube embeds.
-- Terms and business pages ([terms.html](terms.html), [business.html](business.html)) use a white `.container` card centered in the page for long-form text (terms list, business info).
+### 2. Layout, Styling & Navigation
+- Global look: pink header background `#ffb3b3`, light main background `#ffe4e6` (`body.page-main`) and light grey doc background `#f5f5f7` (`body.page-doc`), system-ui font, main content centered at `max-width: 960px`.
+- Navigation pattern repeats across pages: brand text plus links for Home / Portfolio / Request / Templates / Terms / Business / Help. Keep nav and footer links in sync on all pages when adding or renaming sections.
+- Home and main marketing pages (`body.page-main`) use `.card` containers for primary content blocks; portfolio uses `.projects` + `.project-card`; templates uses `.templates-grid` + `.template-card` + `.preview-box` as the core card pattern.
+- Terms, business, and help pages (`body.page-doc`) put long-form text inside a white `.container` card for readability.
+- When adding new sections, reuse the existing classes from [assets/styles.css](../assets/styles.css) instead of inlining new styles.
 
-## 3. Forms & JavaScript
-- Keep any new interactivity simple and inline (like the existing script in [request.html](request.html)); prefer vanilla JS over frameworks.
-- The request form relies on standard HTML validation (`required`, `maxlength`) plus a JS `submit` handler that:
-	- Prevents default submission.
-	- Reads values from visible fields.
-	- Builds a multi-line email body and subject.
-	- Navigates to a `mailto:` link to open the default email client.
-- If you add or rename form fields, update the script’s DOM queries and `lines` array to match, preserving the mailto-based workflow.
-- The project-type `<select>` toggles a text hint linking to [templates.html](templates.html) when the "Build From Template" option is selected; keep that behavior aligned if options change.
+### 3. Multilingual Content Pattern
+- Most pages include a `.language-module` with a `<select id="languageSelect">` for `en`, `es`, `ru`, `uk`, and `zh`, plus an inline IIFE script that:
+	- Defines a `translations` object keyed by language.
+	- Looks up content elements by stable `id` values (e.g., `page-title`, `lead-text`, `proj1-title`).
+	- Updates `document.documentElement.lang` and replaces `textContent`/`innerHTML` on language change.
+- When you change text that participates in translations, update the corresponding `translations` entry instead of hardcoding new copy.
+- If you add new translated fields, follow the same pattern: assign an `id` in HTML and wire it into the `translations` object and `applyLanguage` function on that page.
 
-## 4. Assets & File Organization
-- Static files live at the repo root (HTML pages) plus asset folders: [assets](assets), [images](images%20), and [videos](videos).
-- When adding images or video thumbnails, place them under these folders and reference via relative paths from the HTML pages.
-- Favor lightweight formats (SVG for icons, compressed PNG/JPEG for images, embedded/linked YouTube for video previews) to keep the site small.
+### 4. Request Form & JavaScript Behavior
+- The main interactive form is in [request.html](../request.html): it uses vanilla JS for:
+	- Language switching (same pattern as other pages, including translated labels and option text).
+	- Showing the template hint: the `projectType` `<select>` toggles visibility of `#templates-link-wrapper` when the "Build From Template" option is selected.
+	- Form submission via mailto: the `submit` handler prevents default, reads field values, builds a subject/body, and navigates to a `mailto:` URL to open the user’s email client.
+- If you rename or add form fields, update:
+	- The DOM queries in the script (`getElementById` targets and IDs in HTML).
+	- The `translations` entries for labels, hints, and button text.
+	- The email composition logic so the message still includes all important user input.
+- Keep interactivity small and inline, in the same style as the existing IIFEs; prefer vanilla JS and avoid adding dependencies.
 
-## 5. Workflows & Tooling
-- There is **no npm/pip/CLI workflow**. To preview, open any HTML file directly in a browser or use a simple static server (e.g., VS Code Live Server).
-- If you propose additional tooling (e.g., a CSS file shared across pages), keep the current open-in-browser behavior working and document any new steps in this repo.
+### 5. Assets & Media
+- Shared CSS is under [assets/styles.css](../assets/styles.css); background images and any future media should live under the assets, images, or videos folders.
+- Use relative links from HTML files (e.g., `assets/styles.css`, `images/...`) and prefer lightweight formats (compressed PNG/JPEG, SVG) and external video hosting (YouTube embeds) where possible.
 
-## 6. AI Agent Collaboration
-- Make small, focused edits: adjust one page or section at a time and maintain visual consistency across headers, nav, and footer.
-- Preserve existing colors, typography, and layout unless a redesign is explicitly requested.
-- When adding new content, mirror existing patterns: cards on [index.html](index.html), project cards on [portfolio.html](portfolio.html), template cards on [templates.html](templates.html), and long-form text inside `.container` on [terms.html](terms.html) / [business.html](business.html).
-- If something about deployment or hosting is unclear, state assumptions and suggest 1–2 concrete static-hosting options rather than introducing complex infrastructure.
+### 6. Workflows & Preview
+- There is no CLI build or test step. To preview changes, either:
+	- Open any `*.html` file directly in a browser, or
+	- Use a simple static server such as VS Code Live Server pointing at the repo root.
+- Keep all pages self-contained and working when opened individually (each page includes its own `<head>` and script block).
+
+### 7. AI Agent Collaboration
+- Make small, focused edits to one page or feature at a time and keep header/nav/footer consistent across all pages.
+- Preserve the overall visual style (colors, typography, spacing) and reuse existing utility classes (`.card`, `.projects`, `.templates-grid`, `.container`, `.language-module`, etc.).
+- When adding new UX elements (cards, sections, or translated text), copy existing patterns from the closest page (home, portfolio, templates, or doc pages) instead of inventing new structures.
+- If deployment or hosting behavior matters, assume a static host (GitHub Pages, Netlify, etc.) and avoid adding server-side code.
