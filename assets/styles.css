@@ -35,17 +35,14 @@ header {
 }
 
 body.page-home header,
-body.page-request header,
-body.page-templates header {
+body.page-request header {
   color: #f9fafb;
   padding: 1rem 1.5rem;
   z-index: 10;
 }
 
-body.page-portfolio header,
 body.page-terms header,
-body.page-business header,
-body.page-help header {
+body.page-business header {
   color: #fff;
   padding: 1rem 0;
   z-index: 100;
@@ -53,9 +50,7 @@ body.page-help header {
 
 /* Navigation layout */
 body.page-home nav,
-body.page-portfolio nav,
-body.page-request nav,
-body.page-templates nav {
+body.page-request nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,28 +131,7 @@ body.page-main h1 {
 }
 
 /* Portfolio grid */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
-  background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-}
-
-.project-card h2 {
-  margin-top: 0;
-  font-size: 1.1rem;
-}
-
-.project-card p {
-  color: #4b5563;
-  font-size: 0.95rem;
-}
+/* (Portfolio grid styles removed; portfolio page no longer exists) */
 
 /* Request form */
 form {
@@ -254,41 +228,7 @@ button[type="submit"]:hover {
   margin-bottom: 0.35rem;
 }
 
-/* Templates page */
-.templates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.template-card {
-  background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-}
-
-.template-card h2 {
-  margin-top: 0;
-  font-size: 1.05rem;
-  margin-bottom: 0.5rem;
-}
-
-.preview-box {
-  border-radius: 0.5rem;
-  border: 2px dashed #d1d5db;
-  background-color: #e5e7eb;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6b7280;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Terms, Business, Help shared container */
+/* Terms & Business shared container */
 body.page-doc .container {
   max-width: 960px;
   margin: 2rem auto;
@@ -354,28 +294,13 @@ body.page-business .cta-link {
   text-decoration: underline;
 }
 
-/* Help page */
+/* Shared nav wrapper for doc pages */
 .nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 960px;
   margin: 0 auto;
-}
-
-body.page-help h1 {
-  color: #ff0000;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-body.page-help p {
-  margin-bottom: 1rem;
-}
-
-.iframe-wrapper {
-  margin-top: 1.5rem;
-  overflow: auto;
 }
 
 /* Responsive tweaks */
@@ -397,8 +322,6 @@ body.page-help p {
   }
 
   .card,
-  .project-card,
-  .template-card,
   form {
     padding: 1rem;
   }
@@ -429,18 +352,4 @@ body.page-help p {
     margin-left: 1rem;
   }
 
-  body.page-help .container {
-    padding: 1rem;
-    margin: 1rem;
-  }
-
-  body.page-help .nav-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  body.page-help .nav-links {
-    flex-wrap: wrap;
-  }
 }
