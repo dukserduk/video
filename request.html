@@ -67,6 +67,7 @@
             <option value="clip5">Video clip (5 Min max)</option>
             <option value="clip10">Video clip (10 Min max)</option>
             <option value="movie20">Movie (20 Min max)</option>
+            <option value="adClip">Advertisement Video Clip</option>
             <option value="restorePhoto">Restore Odd Photo</option>
             <option value="photoToVideo">Photo To Video</option>
             <option value="template">Build From Template*</option>
@@ -122,6 +123,7 @@
           optionClip5: 'Video clip (5 Min max)',
           optionClip10: 'Video clip (10 Min max)',
           optionMovie20: 'Movie (20 Min max)',
+          optionAdClip: 'Advertisement Video Clip',
           optionRestorePhoto: 'Restore Odd Photo',
           optionPhotoToVideo: 'Photo To Video',
           optionTemplate: 'Build From Template*',
@@ -147,6 +149,7 @@
           optionClip5: 'Videoclip (máx. 5 min)',
           optionClip10: 'Videoclip (máx. 10 min)',
           optionMovie20: 'Película (máx. 20 min)',
+          optionAdClip: 'Vídeo publicitario',
           optionRestorePhoto: 'Restaurar foto antigua',
           optionPhotoToVideo: 'Fotos a vídeo',
           optionTemplate: 'Crear desde plantilla*',
@@ -172,6 +175,7 @@
           optionClip5: 'Видеоклип (до 5 мин)',
           optionClip10: 'Видеоклип (до 10 мин)',
           optionMovie20: 'Фильм (до 20 мин)',
+          optionAdClip: 'Рекламный видеоролик',
           optionRestorePhoto: 'Восстановить старое фото',
           optionPhotoToVideo: 'Фото в видео',
           optionTemplate: 'Создать по шаблону*',
@@ -197,6 +201,7 @@
           optionClip5: 'Відеокліп (до 5 хв)',
           optionClip10: 'Відеокліп (до 10 хв)',
           optionMovie20: 'Фільм (до 20 хв)',
+          optionAdClip: 'Рекламний відеоролик',
           optionRestorePhoto: 'Відновити старе фото',
           optionPhotoToVideo: 'Фото у відео',
           optionTemplate: 'Створити за шаблоном*',
@@ -222,6 +227,7 @@
           optionClip5: '视频短片（最长 5 分钟）',
           optionClip10: '视频短片（最长 10 分钟）',
           optionMovie20: '影片（最长 20 分钟）',
+          optionAdClip: '广告视频短片',
           optionRestorePhoto: '修复老照片',
           optionPhotoToVideo: '照片制作成视频',
           optionTemplate: '根据模板制作*',
@@ -277,6 +283,9 @@
                 break;
               case 'movie20':
                 opt.textContent = t.optionMovie20;
+                break;
+              case 'adClip':
+                opt.textContent = t.optionAdClip;
                 break;
               case 'restorePhoto':
                 opt.textContent = t.optionRestorePhoto;

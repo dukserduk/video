@@ -10,7 +10,7 @@ body {
 body.page-main {
   color: #222;
   background-color: #ffe4e6;
-  background-image: url('back.jpg');
+  background-image: url('background.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -20,7 +20,7 @@ body.page-main {
 body.page-doc {
   background: #f5f5f7;
   color: #4b5563;
-  background-image: url('back.jpg');
+  background-image: url('background.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
