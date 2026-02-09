@@ -81,7 +81,7 @@ body.page-business nav {
   color: #111;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
   font-size: 0.95rem;
 }
 
@@ -97,6 +97,88 @@ body.page-main .nav-links a.active {
   color: #ffffff;
   border-bottom: 2px solid #3b82f6;
   padding-bottom: 0.15rem;
+}
+
+/* Request button styling in navigation */
+.nav-links a[href="request.html"] {
+  background-color: #3b82f6;
+  color: #ffffff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+body.page-main .nav-links a[href="request.html"]:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+body.page-main .nav-links a[href="request.html"].active {
+  background-color: #2563eb;
+  border-bottom: none;
+  color: #ffffff;
+}
+
+body.page-doc .nav-links a[href="request.html"] {
+  background-color: #3b82f6;
+  color: #ffffff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+body.page-doc .nav-links a[href="request.html"]:hover,
+body.page-doc .nav-links a[href="request.html"].active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* Prominent CTA section on homepage */
+.cta-section {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.cta-section h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #3b82f6;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 44px;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 body.page-doc .nav-links a:hover,
@@ -142,18 +224,33 @@ form {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 label {
   display: block;
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+label.inline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
 .required {
   color: #dc2626;
   margin-left: 0.1rem;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 input[type="text"],
@@ -163,12 +260,15 @@ select,
 textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.5rem 0.6rem;
+  padding: 0.75rem 0.6rem;
   border-radius: 0.5rem;
   border: 1px solid #d1d5db;
   font: inherit;
   color: inherit;
   background-color: #f9fafb;
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 textarea {
@@ -176,10 +276,17 @@ textarea {
   min-height: 80px;
 }
 
-.inline {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 0.35rem;
+}
+
+label input[type="checkbox"],
+label input[type="radio"] {
+  cursor: pointer;
 }
 
 .hint {
@@ -205,13 +312,17 @@ textarea {
 
 button[type="submit"] {
   margin-top: 0.5rem;
-  padding: 0.6rem 1.4rem;
+  padding: 0.8rem 2rem;
   border-radius: 999px;
   border: none;
   font: inherit;
   background-color: #3b82f6;
   color: #ffffff;
   cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 button[type="submit"]:hover {
@@ -305,15 +416,27 @@ body.page-business .cta-link {
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
   body.page-main nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .nav-links {
     flex-wrap: wrap;
     gap: 0.75rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   body.page-main main {
@@ -323,17 +446,74 @@ body.page-business .cta-link {
 
   .card,
   form {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .language-module {
     max-width: 100%;
   }
 
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    padding: 0.875rem 0.75rem;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    min-height: 48px;
+  }
+
+  .inline {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
   body.page-request nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   body.page-request .nav-links a {
@@ -342,7 +522,7 @@ body.page-business .cta-link {
   }
 
   body.page-doc .container {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     margin: 1rem;
   }
 
@@ -352,4 +532,39 @@ body.page-business .cta-link {
     margin-left: 1rem;
   }
 
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .hint {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.page-main nav {
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .card,
+  form {
+    padding: 1rem;
+  }
+
+  .cta-section {
+    padding: 1.5rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .cta-button {
+    padding: 0.9rem 1.2rem;
+  }
 }

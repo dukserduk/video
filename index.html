@@ -14,7 +14,7 @@
         </div>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
-        <a href="request.html">Request</a>
+        <a href="request.html" class="btn-request">Request</a>
         <a href="terms.html">Terms</a>
         <a href="business.html">Business</a>
       </div>
@@ -47,6 +47,12 @@
       <p id="home-p3">
         When you are ready, please visit the <a href="request.html">Request</a> page and fill out the form. We will review your ideas and get back to you with the next steps.
       </p>
+
+      <div class="cta-section">
+        <h2 id="cta-title">Ready to Get Started?</h2>
+        <p id="cta-text">Tell us about your project and let's bring your vision to life together.</p>
+        <a href="request.html" class="cta-button" id="cta-button-text">Submit Your Request Now</a>
+      </div>
     </section>
   </main>
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
@@ -88,6 +94,9 @@
             'We combine modern AI tools with careful human editing, storytelling, and personal communication so that every project feels thoughtful, polished, and truly yours.',
           p3:
             'When you are ready, please visit the <a href="request.html">Request</a> page and fill out the form. We will review your ideas and get back to you with the next steps.',
+          ctaTitle: 'Ready to Get Started?',
+          ctaText: 'Tell us about your project and let\'s bring your vision to life together.',
+          ctaButton: 'Submit Your Request Now',
         },
         es: {
           labelLanguage: 'Idioma',
@@ -112,6 +121,9 @@
             'Мы сочетаем современные инструменты ИИ с аккуратной ручной обработкой, сторителлингом и личным общением, чтобы каждый проект был продуманным, аккуратным и по‑настоящему вашим.',
           p3:
             'Когда будете готовы, перейдите на страницу <a href="request.html">Запрос</a> и заполните форму. Мы изучим ваши идеи и свяжемся с вами для согласования следующих шагов.',
+          ctaTitle: 'Готовы начать?',
+          ctaText: 'Расскажите нам о вашем проекте и давайте вместе воплотим вашу идею в жизнь.',
+          ctaButton: 'Отправить запрос сейчас',
         },
         uk: {
           labelLanguage: 'Мова',
@@ -124,6 +136,9 @@
             'Ми поєднуємо сучасні інструменти ШІ з уважним ручним монтажем, сторителінгом та особистим спілкуванням, щоб кожен проєкт був продуманим, охайним і по‑справжньому вашим.',
           p3:
             'Коли будете готові, перейдіть на сторінку <a href="request.html">Запит</a> і заповніть форму. Ми переглянемо ваші ідеї та надамо подальші кроки.',
+          ctaTitle: 'Готові почати?',
+          ctaText: 'Розкажіть нам про свій проект, і давайте разом втілимо вашу ідею в життя.',
+          ctaButton: 'Надіслати запит зараз',
         },
         zh: {
           labelLanguage: '语言',
@@ -136,6 +151,9 @@
             '我们将现代 AI 工具与细致的人工剪辑、故事设计和个性化沟通结合起来，让每一个项目都显得用心、精致，而且真正属于你。',
           p3:
             '当你准备好时，可以前往 <a href="request.html">项目请求</a> 页面并填写表单。我们会查看你的想法，并与您联系下一步计划。',
+          ctaTitle: '准备好开始了吗？',
+          ctaText: '告诉我们你的项目想法，让我们一起把你的愿景变成现实。',
+          ctaButton: '立即提交请求',
         },
       };
 
@@ -149,6 +167,15 @@
         if (p1El && t.p1) p1El.textContent = t.p1;
         if (p2El && t.p2) p2El.textContent = t.p2;
         if (p3El && t.p3) p3El.innerHTML = t.p3;
+        
+        // Apply CTA section translations
+        const ctaTitleEl = document.getElementById('cta-title');
+        const ctaTextEl = document.getElementById('cta-text');
+        const ctaButtonEl = document.getElementById('cta-button-text');
+        
+        if (ctaTitleEl && t.ctaTitle) ctaTitleEl.textContent = t.ctaTitle;
+        if (ctaTextEl && t.ctaText) ctaTextEl.textContent = t.ctaText;
+        if (ctaButtonEl && t.ctaButton) ctaButtonEl.textContent = t.ctaButton;
       }
 
       if (languageSelect) {
