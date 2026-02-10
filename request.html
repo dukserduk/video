@@ -127,9 +127,6 @@
       const languageSelect = document.getElementById('languageSelect');
       const statusMessage = document.getElementById('status-message');
 
-      // TODO: Replace this with your real form endpoint from a service like Formspree or Netlify Forms
-      const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
       const translations = {
         en: {
           pageTitle: 'Request Your Custom Video & Photo Project',
@@ -381,44 +378,38 @@
           const currentLang = (languageSelect && languageSelect.value) || 'en';
           const t = translations[currentLang] || translations.en;
 
-          if (statusMessage) {
-            statusMessage.textContent = '';
-          }
+          // Collect form data
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const projectTypeElement = document.getElementById('projectType');
+          const projectTypeText = projectTypeElement.options[projectTypeElement.selectedIndex].text;
+          const details = document.getElementById('details').value.trim();
+          const requestCallChecked = document.getElementById('requestCall').checked ? 'Yes' : 'No';
 
-          const formData = new FormData(form);
+          const lines = [
+            'Name: ' + name,
+            'Email: ' + email,
+            'Phone: ' + phone,
+            'Request Call: ' + requestCallChecked,
+            'What To Build: ' + projectTypeText,
+            'Details: ' + (details || '(none)')
+          ];
 
-          if (FORM_ENDPOINT && FORM_ENDPOINT.indexOf('YOUR_FORM_ID') === -1) {
-            fetch(FORM_ENDPOINT, {
-              method: 'POST',
-              body: formData,
-              headers: {
-                Accept: 'application/json',
-              },
-            })
-              .then(function (response) {
-                if (!response.ok) {
-                  throw new Error('Network response was not ok');
-                }
-                if (statusMessage) {
-                  statusMessage.textContent = t.statusSuccess;
-                }
-                try {
-                  alert(t.statusSuccess);
-                } catch (e) {
-                  // ignore if alerts are blocked
-                }
-                form.reset();
-              })
-              .catch(function () {
-                if (statusMessage) {
-                  statusMessage.textContent = t.statusError;
-                }
-              });
-          } else {
+          const subject = encodeURIComponent('New Request from Portfolio Site');
+          const body = encodeURIComponent(lines.join('\n'));
+          const mailto = 'mailto:request@makememovie.org?subject=' + subject + '&body=' + body;
+
+          // Open mailto link
+          window.location.href = mailto;
+          
+          // Show success message after a brief delay
+          setTimeout(function() {
             if (statusMessage) {
-              statusMessage.textContent = t.statusError;
+              statusMessage.textContent = t.statusSuccess;
             }
-          }
+            form.reset();
+          }, 500);
         });
       }
     })();
