@@ -99,6 +99,7 @@
         </div>
 
         <button type="submit" id="submit-button">Submit</button>
+        <div id="status-message" class="hint" aria-live="polite" style="margin-top:1rem;"></div>
       </form>
       <noscript>
         <p class="hint">Note: JavaScript is required for automatic email composition and showing the Templates link when relevant.</p>
@@ -124,12 +125,16 @@
       const projectSelect = document.getElementById('projectType');
       const templatesWrapper = document.getElementById('templates-link-wrapper');
       const languageSelect = document.getElementById('languageSelect');
+      const statusMessage = document.getElementById('status-message');
+
+      // TODO: Replace this with your real form endpoint from a service like Formspree or Netlify Forms
+      const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
       const translations = {
         en: {
           pageTitle: 'Request Your Custom Video & Photo Project',
           leadText:
-            'Fill out this form to tell us what you would like us to build. All fields are required unless noted otherwise.',,
+            'Fill out this form to tell us what you would like us to build. All fields are required unless noted otherwise.',
           labelLanguage: 'Language',
           labelName: 'Your Name',
           labelEmail: 'Your Email',
@@ -151,6 +156,9 @@
           termsLabel:
             'I have read <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Terms and Condition</a><span class="required">*</span>',
           submitButton: 'Submit',
+          statusSuccess: 'Thank you! Your request has been sent. We will contact you soon.',
+          statusError:
+            'Sorry, something went wrong while sending your request. Please try again later or email request@makememovie.org directly.',
         },
         es: {
           pageTitle: 'Solicitar un proyecto',
@@ -177,6 +185,10 @@
           termsLabel:
             'He leído las <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Condiciones</a><span class="required">*</span>',
           submitButton: 'Enviar',
+          statusSuccess:
+            '¡Gracias! Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.',
+          statusError:
+            'Lo sentimos, ha ocurrido un error al enviar tu solicitud. Inténtalo de nuevo más tarde o escribe directamente a request@makememovie.org.',
         },
         ru: {
           pageTitle: 'Запрос проекта',
@@ -203,6 +215,10 @@
           termsLabel:
             'Я прочитал(а) <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Условия и правила</a><span class="required">*</span>',
           submitButton: 'Отправить',
+          statusSuccess:
+            'Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
+          statusError:
+            'К сожалению, произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или напишите напрямую на request@makememovie.org.',
         },
         uk: {
           pageTitle: 'Запит на проєкт',
@@ -229,6 +245,10 @@
           termsLabel:
             'Я ознайомився з <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">Умовами та правилами</a><span class="required">*</span>',
           submitButton: 'Надіслати',
+          statusSuccess:
+            'Дякуємо! Ваш запит надіслано. Ми зв’яжемося з вами найближчим часом.',
+          statusError:
+            'Сталася помилка під час надсилання запиту. Спробуйте пізніше або напишіть напряму на request@makememovie.org.',
         },
         zh: {
           pageTitle: '提交项目请求',
@@ -255,6 +275,9 @@
           termsLabel:
             '我已阅读 <a href="terms.html" target="_blank" style="color:#3b82f6;text-decoration:underline;">条款与条件</a><span class="required">*</span>',
           submitButton: '提交',
+          statusSuccess: '感谢您的提交！我们已收到您的请求，会尽快与您联系。',
+          statusError:
+            '抱歉，发送请求时出现错误。请稍后再试，或直接发送邮件至 request@makememovie.org。',
         },
       };
 
@@ -325,6 +348,7 @@
         if (templatesHintText) templatesHintText.innerHTML = t.templatesHint;
         if (termsLabel) termsLabel.innerHTML = t.termsLabel;
         if (submitButton) submitButton.textContent = t.submitButton;
+        if (statusMessage) statusMessage.textContent = '';
       }
 
       if (projectSelect && templatesWrapper) {
@@ -349,29 +373,52 @@
       if (form) {
         form.addEventListener('submit', function (event) {
           event.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
 
-          const name = document.getElementById('name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const phone = document.getElementById('phone').value.trim();
-          const projectTypeElement = document.getElementById('projectType');
-          const projectTypeText = projectTypeElement.options[projectTypeElement.selectedIndex].text;
-          const details = document.getElementById('details').value.trim();
-          const requestCallChecked = document.getElementById('requestCall').checked ? 'Yes' : 'No';
+          const currentLang = (languageSelect && languageSelect.value) || 'en';
+          const t = translations[currentLang] || translations.en;
 
-          const lines = [
-            'Name: ' + name,
-            'Email: ' + email,
-            'Phone: ' + phone,
-            'Request Call: ' + requestCallChecked,
-            'What To Build: ' + projectTypeText,
-            'Details: ' + (details || '(none)')
-          ];
+          if (statusMessage) {
+            statusMessage.textContent = '';
+          }
 
-          const subject = encodeURIComponent('New Request from Portfolio Site');
-          const body = encodeURIComponent(lines.join('\n'));
-          const mailto = 'mailto:request@makememovie.org?subject=' + subject + '&body=' + body;
+          const formData = new FormData(form);
 
-          window.location.href = mailto;
+          if (FORM_ENDPOINT && FORM_ENDPOINT.indexOf('YOUR_FORM_ID') === -1) {
+            fetch(FORM_ENDPOINT, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                Accept: 'application/json',
+              },
+            })
+              .then(function (response) {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                if (statusMessage) {
+                  statusMessage.textContent = t.statusSuccess;
+                }
+                try {
+                  alert(t.statusSuccess);
+                } catch (e) {
+                  // ignore if alerts are blocked
+                }
+                form.reset();
+              })
+              .catch(function () {
+                if (statusMessage) {
+                  statusMessage.textContent = t.statusError;
+                }
+              });
+          } else {
+            if (statusMessage) {
+              statusMessage.textContent = t.statusError;
+            }
+          }
         });
       }
     })();
