@@ -5,40 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Professional advertisement video production for businesses. Custom AI-enhanced video editing for social media marketing and promotional content." />
   <meta name="keywords" content="advertisement video, business promotional video, social media video production, AI video editing for business, commercial video production" />
-  <title>DESIGN STUDIO - Business Advertisement Videos</title>
+  <title>Digital Heritage Studio - Business Advertisement Videos</title>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body class="page-doc page-business">
   <header>
     <div class="nav-wrapper">
-      <div style="display:flex;align-items:center;gap:0.75rem;">
-        <a href="index.html" aria-label="Home" title="Home" target="_blank" rel="noopener noreferrer">
-          <video width="180" height="75" autoplay muted loop style="display:block;">
-            <source src="assets/Art&Design12.mp4" type="video/mp4">
-          </video>
+      <div class="brand" style="display:flex;align-items:center;gap:0.75rem;">
+        <a href="index.html" class="brand-link" aria-label="Digital Heritage Studio" title="Digital Heritage Studio">
+          <svg class="brand-logo" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.2" fill="none"></rect>
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.2" fill="none"></circle>
+            <rect x="16.5" y="6.5" width="2" height="2" rx="0.5" fill="currentColor"></rect>
+          </svg>
+          <span class="brand-text">Digital Heritage Studio</span>
         </a>
       </div>
-      <nav class="nav-links">
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="request.html" class="btn-request">Request</a>
+        <a href="for-people.html">For People</a>
+        <a href="business.html" class="active">To Business</a>
         <a href="terms.html">Terms</a>
-        <a href="business.html" class="active">Business</a>
-      </nav>
+      </div>
     </div>
   </header>
+
   <main>
     <div class="container">
-      <div class="language-module">
-        <label for="languageSelect" id="label-language">Language</label>
-        <select id="languageSelect" name="languageSelect">
-          <option value="en" selected>English</option>
-          <option value="es">Español</option>
-          <option value="ru">Русский</option>
-          <option value="uk">Українська</option>
-          <option value="zh">中文</option>
-        </select>
-      </div>
-
       <div id="business-body">
         <h1>Professional AI-Enhanced Advertisement Videos for Business</h1>
         <p>
@@ -81,6 +75,7 @@
       </div>
     </div>
   </main>
+
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
     <div style="max-width:960px;margin:0 auto;">
       <div style="margin-bottom:1rem;">
@@ -98,247 +93,5 @@
       <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
     </div>
   </footer>
-  <script>
-    (function () {
-      const languageSelect = document.getElementById('languageSelect');
-      const businessBody = document.getElementById('business-body');
-      const labelLanguage = document.getElementById('label-language');
-
-      const translations = {
-        en: {
-          labelLanguage: 'Language',
-          body: `
-        <h1>Professional AI-Enhanced Advertisement Videos for Business</h1>
-        <p>
-          Hello and welcome to our Business Services.
-        </p>
-        <p>
-          Are you looking to attract more customers and showcase your unique offerings? A professionally crafted advertisement video can help your
-          business stand out in today’s digital world.
-        </p>
-
-        <h2>What We Offer</h2>
-        <ul>
-          <li><strong>Creative Concept Development:</strong> We work with you to understand your brand and create a compelling story tailored for your audience.</li>
-          <li><strong>Filming &amp; Production:</strong> High-quality video capture at your location, highlighting your products, services, and customer experience.</li>
-          <li><strong>Professional Editing:</strong> Eye-catching visuals, engaging music, and branded graphics to ensure your video looks polished and memorable.</li>
-          <li><strong>Social Media Ready:</strong> We deliver your video in formats optimized for Facebook, Instagram, YouTube, and your website.</li>
-        </ul>
-
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li><strong>Local expertise:</strong> We know what resonates with the community.</li>
-          <li><strong>Fast turnaround:</strong> Get your video within 10 days.</li>
-          <li><strong>Affordable packages:</strong> Designed for small businesses, starting at just $500.</li>
-        </ul>
-
-        <h2>Sample Package</h2>
-        <ul>
-          <li>30–360 second advertisement video</li>
-          <li>On-site filming (up to 1 hour)</li>
-          <li>2 rounds of revisions</li>
-          <li>Delivery in HD quality and social media formats</li>
-        </ul>
-
-        <p>
-          We look forward to helping your business shine.
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">Let’s Get Started!</a>
-        </p>
-          `,
-        },
-        es: {
-          labelLanguage: 'Idioma',
-          body: `
-        <h1>Impulsa tu negocio con un vídeo publicitario a medida</h1>
-        <p>
-          Hola y bienvenido a nuestros Servicios para Empresas.
-        </p>
-        <p>
-          ¿Quieres atraer a más clientes y mostrar lo que hace único a tu negocio? Un vídeo publicitario profesional puede ayudarte a destacar en el mundo digital actual.
-        </p>
-
-        <h2>Qué ofrecemos</h2>
-        <ul>
-          <li><strong>Desarrollo del concepto creativo:</strong> Trabajamos contigo para comprender tu marca y crear una historia convincente adaptada a tu público.</li>
-          <li><strong>Filmación y producción:</strong> Grabación de vídeo de alta calidad en tu localización, mostrando tus productos, servicios y la experiencia de tus clientes.</li>
-          <li><strong>Edición profesional:</strong> Imágenes llamativas, música atractiva y gráficos con tu marca para que tu vídeo se vea pulido y memorable.</li>
-          <li><strong>Listo para redes sociales:</strong> Entregamos tu vídeo en formatos optimizados para Facebook, Instagram, YouTube y tu sitio web.</li>
-        </ul>
-
-        <h2>¿Por qué elegirnos?</h2>
-        <ul>
-          <li><strong>Experiencia local:</strong> Sabemos qué funciona y qué conecta con la comunidad.</li>
-          <li><strong>Entrega rápida:</strong> Recibe tu vídeo en un plazo de hasta 10 días.</li>
-          <li><strong>Paquetes asequibles:</strong> Diseñados para pequeñas empresas, desde solo 500&nbsp;$.</li>
-        </ul>
-
-        <h2>Paquete de muestra</h2>
-        <ul>
-          <li>Vídeo publicitario de 30–360 segundos</li>
-          <li>Grabación en el lugar (hasta 1 hora)</li>
-          <li>2 rondas de revisiones</li>
-          <li>Entrega en calidad HD y formatos para redes sociales</li>
-        </ul>
-
-        <p>
-          Estamos deseando ayudarte a hacer brillar tu negocio.
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">¡Empecemos!</a>
-        </p>
-          `,
-        },
-        ru: {
-          labelLanguage: 'Язык',
-          body: `
-        <h1>Продвигайте свой бизнес с помощью индивидуального рекламного видеоролика</h1>
-        <p>
-          Добро пожаловать в наши услуги для бизнеса.
-        </p>
-        <p>
-          Хотите привлечь больше клиентов и ярко показать преимущества своего предложения? Профессионально созданный рекламный ролик поможет вашему бизнесу выделиться в современном цифровом мире.
-        </p>
-
-        <h2>Что мы предлагаем</h2>
-        <ul>
-          <li><strong>Разработка креативной концепции:</strong> Мы изучаем вашу марку и создаём историю, которая будет интересна именно вашей аудитории.</li>
-          <li><strong>Съёмка и продакшн:</strong> Профессиональная видеосъёмка на вашей локации с акцентом на ваши продукты, услуги и опыт клиентов.</li>
-          <li><strong>Профессиональный монтаж:</strong> Яркий визуальный ряд, выразительная музыка и фирменная графика, чтобы ваш ролик выглядел стильно и запоминался.</li>
-          <li><strong>Готово для соцсетей:</strong> Мы подготавливаем видео в форматах для Facebook, Instagram, YouTube и вашего сайта.</li>
-        </ul>
-
-        <h2>Почему выбирают нас</h2>
-        <ul>
-          <li><strong>Локальная экспертиза:</strong> Мы понимаем, что откликается в вашей аудитории.</li>
-          <li><strong>Быстрые сроки:</strong> Готовый ролик в течение 10 дней.</li>
-          <li><strong>Доступные пакеты:</strong> Решения для малого бизнеса, начиная примерно с 500&nbsp;$.</li>
-        </ul>
-
-        <h2>Пример пакета</h2>
-        <ul>
-          <li>Рекламный видеоролик продолжительностью 30–360 секунд</li>
-          <li>Съёмка на объекте (до 1 часа)</li>
-          <li>2 раунда правок</li>
-          <li>Доставка в HD‑качестве и форматах для соцсетей</li>
-        </ul>
-
-        <p>
-          Мы с радостью поможем вашему бизнесу засиять.
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">Начать сотрудничество</a>
-        </p>
-          `,
-        },
-        uk: {
-          labelLanguage: 'Мова',
-          body: `
-        <h1>Прокачайте свій бізнес за допомогою рекламного відеоролика на замовлення</h1>
-        <p>
-          Вітаємо у наших послугах для бізнесу.
-        </p>
-        <p>
-          Хочете залучити більше клієнтів і яскраво показати, чим ваш бізнес відрізняється від інших? Професійно створений рекламний відеоролик допоможе вам виділитися в сучасному цифровому світі.
-        </p>
-
-        <h2>Що ми пропонуємо</h2>
-        <ul>
-          <li><strong>Розробка креативної концепції:</strong> Ми працюємо з вами, щоб зрозуміти ваш бренд і створити переконливу історію для вашої аудиторії.</li>
-          <li><strong>Зйомка та продакшн:</strong> Відеозйомка високої якості на вашій локації з акцентом на продукти, послуги та досвід клієнтів.</li>
-          <li><strong>Професійний монтаж:</strong> Виразна картинка, приваблива музика та фірмова графіка, щоб відео виглядало сучасно й запам’ятовувалося.</li>
-          <li><strong>Готово для соцмереж:</strong> Ми готуємо відео у форматах для Facebook, Instagram, YouTube і вашого сайту.</li>
-        </ul>
-
-        <h2>Чому обирають нас</h2>
-        <ul>
-          <li><strong>Локальна експертиза:</strong> Ми розуміємо, що відгукується у вашій спільноті.</li>
-          <li><strong>Швидкі строки:</strong> Готове відео протягом 10 днів.</li>
-          <li><strong>Доступні пакети:</strong> Рішення для малого бізнесу, від приблизно 500&nbsp;$.</li>
-        </ul>
-
-        <h2>Приклад пакета</h2>
-        <ul>
-          <li>Рекламний відеоролик тривалістю 30–360 секунд</li>
-          <li>Зйомка на об’єкті (до 1 години)</li>
-          <li>2 раунди правок</li>
-          <li>Передача в HD‑якості та форматах для соцмереж</li>
-        </ul>
-
-        <p>
-          Ми з нетерпінням чекаємо можливості допомогти вашому бізнесу засяяти.
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">Розпочати</a>
-        </p>
-          `,
-        },
-        zh: {
-          labelLanguage: '语言',
-          body: `
-        <h1>用定制广告视频为您的生意加分！</h1>
-        <p>
-          您好，欢迎了解我们的商业服务。
-        </p>
-        <p>
-          如果您希望吸引更多顾客、清晰展示自己的产品和特色，一支精心制作的广告视频可以帮助您的生意在当今数字世界中脱颖而出。
-        </p>
-
-        <h2>我们可以为您做什么</h2>
-        <ul>
-          <li><strong>创意策划：</strong>与您一起梳理品牌特点，设计适合目标受众的故事与脚本。</li>
-          <li><strong>现场拍摄与制作：</strong>在您的店铺或指定地点进行高质量拍摄，突出产品、服务和顾客体验。</li>
-          <li><strong>专业剪辑：</strong>精心剪辑画面，搭配音乐与品牌元素，让视频更吸引人、更有记忆点。</li>
-          <li><strong>适配社交媒体：</strong>为 Facebook、Instagram、YouTube 以及您的网站提供合适的视频格式。</li>
-        </ul>
-
-        <h2>为什么选择我们？</h2>
-        <ul>
-          <li><strong>本地经验：</strong>了解本地客户群体，更清楚什么内容更容易打动他们。</li>
-          <li><strong>交付迅速：</strong>通常在 10 天内完成成片。</li>
-          <li><strong>价格友好：</strong>为中小型商家设计的套餐，价格大约从 500 美元起。</li>
-        </ul>
-
-        <h2>示例套餐</h2>
-        <ul>
-          <li>30–360 秒广告视频</li>
-          <li>上门拍摄（最长约 1 小时）</li>
-          <li>2 轮修改</li>
-          <li>提供高清版本以及适合社交媒体的平台格式</li>
-        </ul>
-
-        <p>
-          我们期待与您合作，让您的生意更闪耀。
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">现在就开始吧！</a>
-        </p>
-          `,
-        },
-      };
-
-      function applyLanguage(lang) {
-        const t = translations[lang] || translations.en;
-        document.documentElement.lang = lang;
-
-        if (labelLanguage && t.labelLanguage) {
-          labelLanguage.textContent = t.labelLanguage;
-        }
-        if (businessBody && t.body) {
-          businessBody.innerHTML = t.body;
-        }
-      }
-
-      if (languageSelect) {
-        languageSelect.addEventListener('change', function () {
-          applyLanguage(this.value || 'en');
-        });
-        applyLanguage(languageSelect.value || 'en');
-      } else {
-        applyLanguage('en');
-      }
-    })();
-  </script>
 </body>
 </html>

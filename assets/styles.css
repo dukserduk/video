@@ -71,6 +71,27 @@ body.page-business nav {
   letter-spacing: 0.05em;
 }
 
+/* Brand link (text logo) styling for accessibility and SEO */
+.brand-link {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+}
+
+.brand-link:hover,
+.brand-link:focus {
+  color: #0b63d6;
+  text-decoration: none;
+}
+
+.brand-link:focus-visible {
+  outline: 3px solid rgba(59,130,246,0.18);
+  border-radius: 6px;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -179,6 +200,30 @@ body.page-doc .nav-links a[href="request.html"].active {
 .cta-button:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+/* Inline SVG brand logo next to text */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: block;
+}
+
+.brand-link svg {
+  display: block;
+  color: inherit;
+}
+
+.brand-text {
+  display: inline-block;
+  vertical-align: middle;
+}
 }
 
 body.page-doc .nav-links a:hover,
