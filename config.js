@@ -8,7 +8,7 @@ window.siteConfig = {
   
   // Video Player Settings
   video: {
-    source: "assets/Art&Design12.mp4",
+    source: "assets/video.mp4",
     width: "50%", // Can be percentage or pixels (e.g., "800px")
     autoplay: false,
     muted: true,
