@@ -71,12 +71,31 @@
         const source = video.querySelector('source');
         if (source && config.video.source) {
           source.src = config.video.source;
-          video.load();
         }
         video.autoplay = config.video.autoplay;
         video.muted = config.video.muted;
         video.loop = config.video.loop;
         video.controls = config.video.controls;
+        
+        // Load and attempt to play
+        video.load();
+        
+        // Try to play when loaded
+        video.addEventListener('loadeddata', function() {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+              console.log('Autoplay prevented. User interaction required.');
+              // Video will need manual play button click
+            });
+          }
+        });
+        
+        // Fallback: try to play on any user interaction
+        document.addEventListener('click', function tryPlay() {
+          video.play().catch(e => {});
+          document.removeEventListener('click', tryPlay);
+        }, { once: true });
       }
       if (videoSection && config.video.width) {
         videoSection.style.width = config.video.width;
