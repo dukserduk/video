@@ -7,6 +7,7 @@
   <meta name="keywords" content="video editing, photo restoration, family documentary, video storytelling, AI-enhanced video, custom video production, wedding videographer, photo editing service" />
   <title>Digital Heritage Studio - Video & Photo Storytelling</title>
   <link rel="stylesheet" href="assets/styles.css" />
+  <script src="config.js"></script>
 </head>
 <body class="page-main page-home">
   <header>
@@ -30,7 +31,6 @@
       </div>
     </nav>
   </header>
-
   <main>
     <section class="card" style="padding: 0; border-radius: 0.75rem; overflow: hidden; width: 50%; margin: 0 auto;">
       <video autoplay muted loop playsinline controls style="width: 100%; display: block;">
@@ -57,5 +57,75 @@
             <section style="max-width:1200px;margin:1.5rem auto;padding:0 1rem;">
   </footer>
   
+  <script>
+    // Apply configuration on page load
+    (function() {
+      if (!window.siteConfig) return;
+      
+      const config = window.siteConfig;
+      
+      // Update video player
+      const video = document.querySelector('video');
+      const videoSection = document.querySelector('main .card');
+      if (video && config.video) {
+        const source = video.querySelector('source');
+        if (source && config.video.source) {
+          source.src = config.video.source;
+          video.load();
+        }
+        video.autoplay = config.video.autoplay;
+        video.muted = config.video.muted;
+        video.loop = config.video.loop;
+        video.controls = config.video.controls;
+      }
+      if (videoSection && config.video.width) {
+        videoSection.style.width = config.video.width;
+      }
+      
+      // Update brand name
+      if (config.brand && config.brand.name) {
+        const brandText = document.querySelector('.brand-text');
+        if (brandText) brandText.textContent = config.brand.name;
+        
+        const brandLink = document.querySelector('.brand-link');
+        if (brandLink) {
+          brandLink.setAttribute('aria-label', config.brand.name);
+          brandLink.setAttribute('title', config.brand.name);
+        }
+      }
+      
+      // Update social media links
+      if (config.social) {
+        const socialLinks = document.querySelectorAll('footer a[aria-label]');
+        socialLinks.forEach(link => {
+          const platform = link.getAttribute('aria-label').toLowerCase();
+          if (config.social[platform]) {
+            link.href = config.social[platform];
+          }
+        });
+      }
+      
+      // Update copyright
+      if (config.footer) {
+        const copyrightSpan = document.querySelector('footer span');
+        if (copyrightSpan) {
+          copyrightSpan.textContent = `© ${config.footer.copyrightYear} ${config.footer.copyrightText}`;
+        }
+      }
+      
+      // Update SEO
+      if (config.seo) {
+        if (config.seo.title) document.title = config.seo.title;
+        if (config.seo.description) {
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) metaDesc.content = config.seo.description;
+        }
+        if (config.seo.keywords) {
+          const metaKeywords = document.querySelector('meta[name="keywords"]');
+          if (metaKeywords) metaKeywords.content = config.seo.keywords;
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
