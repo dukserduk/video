@@ -450,6 +450,54 @@ body.page-business .cta-link {
   text-decoration: underline;
 }
 
+/* FAQ page styles */
+body.page-faq h1 {
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+body.page-faq .faq-section {
+  margin-bottom: 2rem;
+}
+
+body.page-faq .faq-section h2 {
+  color: #222;
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ffb3b3;
+}
+
+body.page-faq .faq-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e5e7;
+}
+
+body.page-faq .faq-item h3 {
+  color: #222;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+body.page-faq .faq-item p {
+  margin: 0.5rem 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+body.page-faq .faq-item a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+body.page-faq .faq-item a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
 /* Shared nav wrapper for doc pages */
 .nav-wrapper {
   display: flex;
