@@ -517,17 +517,77 @@ body.page-faq .faq-item a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 0.75rem 1rem !important;
   }
 
-  body.page-main nav {
+  body.page-main nav,
+  body.page-doc nav {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
   }
 
-  body.page-main nav > div:first-child {
+  body.page-main nav > div:first-child,
+  body.page-doc nav > div:first-child {
     width: 100%;
   }
+
+  /* nav-wrapper for doc pages */
+  header > .nav-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+    justify-content: center;
+  }
+
+  .nav-links a.btn-request {
+    flex: 1 0 100%;
+  }
+
+  body.page-main main,
+  body.page-doc main {
+    margin: 1rem auto;
+    padding: 0 1rem 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .card,
+  form {
+    padding: 1.25rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .language-module {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .language-module select {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
 
   body.page-main nav > div:first-child video {
     width: 100%;
@@ -728,13 +788,21 @@ body.page-faq .faq-item a:hover {
     padding: 0.75rem 0 !important;
   }
 
-  body.page-main nav {
+  body.page-main nav,
+  body.page-doc nav {
     gap: 0.5rem;
     padding: 0 0.75rem;
   }
 
-  body.page-main nav > div:first-child video {
+  body.page-main nav > div:first-child,
+  body.page-doc nav > div:first-child {
     max-width: 100px;
+  }
+
+  /* nav-wrapper for doc pages */
+  header > .nav-wrapper {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
   }
 
   .nav-links {
@@ -747,7 +815,8 @@ body.page-faq .faq-item a:hover {
     min-width: 45%;
   }
 
-  body.page-main main {
+  body.page-main main,
+  body.page-doc main {
     margin: 0.75rem auto;
     padding: 0 0.75rem 1.5rem;
   }
@@ -756,6 +825,11 @@ body.page-faq .faq-item a:hover {
   form {
     padding: 1rem 0.75rem;
     margin: 0;
+  }
+
+  body.page-doc .container {
+    padding: 1rem 0.75rem;
+    margin: 0.75rem 0;
   }
 
   .form-group {
