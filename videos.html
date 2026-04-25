@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MZ69WHH9G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7MZ69WHH9G');
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional advertisement video production for businesses. Custom AI-enhanced video editing for social media marketing and promotional content." />
-  <meta name="keywords" content="advertisement video, business promotional video, social media video production, AI video editing for business, commercial video production" />
-  <title>Digital Heritage Studio - Business Advertisement Videos</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videos — Digital Heritage Studio</title>
+  <meta name="description" content="Digital Heritage Studio video collection and examples of AI-enhanced storytelling clips." />
   <link rel="stylesheet" href="assets/styles.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MZ69WHH9G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7MZ69WHH9G');
+  </script>
 </head>
-<body class="page-doc page-business">
+<body class="page-main page-videos">
   <header>
-    <div class="nav-wrapper">
+    <nav>
       <div class="brand" style="display:flex;align-items:center;gap:0.75rem;">
         <a href="index.html" class="brand-link" aria-label="Digital Heritage Studio" title="Digital Heritage Studio">
           <svg class="brand-logo" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -34,58 +32,45 @@
         <a href="index.html">Home</a>
         <a href="request.html" class="btn-request">Request</a>
         <a href="photos.html">Photos</a>
-        <a href="videos.html">Videos</a>
-        <a href="business.html" class="active">To Business</a>
+        <a href="videos.html" class="active">Videos</a>
+        <a href="business.html">To Business</a>
         <a href="faq.html">FAQ</a>
         <a href="terms.html">Terms</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main>
     <div class="container">
-      <div id="business-body">
-        <h1>Professional AI-Enhanced Advertisement Videos for Business</h1>
-        <p>
-          Hello and welcome to our Business Services.
-        </p>
-        <p>
-          Are you looking to attract more customers and showcase your unique offerings? A professionally crafted advertisement video can help your
-          business stand out in today’s digital world.
-        </p>
+      <h1>Videos</h1>
+      <p class="lead">A small video collection of AI-enhanced clips.</p>
 
-        <h2>What We Offer</h2>
-        <ul>
-          <li><strong><a href="https://www.youtube.com/@MAKEMEMOVIE777" target="_blank" rel="noopener noreferrer">Creative Concept Development</a>:</strong> We work with you to understand your brand and create a compelling story tailored for your audience.</li>
-          <li><strong><a href="https://www.youtube.com/@MAKEMEMOVIE777" target="_blank" rel="noopener noreferrer">Filming &amp; Production</a>:</strong> High-quality video capture at your location, highlighting your products, services, and customer experience.</li>
-          <li><strong><a href="https://www.youtube.com/@MAKEMEMOVIE777" target="_blank" rel="noopener noreferrer">Professional Editing</a>:</strong> Eye-catching visuals, engaging music, and branded graphics to ensure your video looks polished and memorable.</li>
-          <li><strong><a href="https://www.youtube.com/@MAKEMEMOVIE777" target="_blank" rel="noopener noreferrer">Social Media Ready</a>:</strong> We deliver your video in formats optimized for Facebook, Instagram, YouTube, and your website.</li>
-        </ul>
+      <section>
+        <div class="section-title">Clips</div>
+        <div class="videos-grid">
+          <div>
+            <video controls preload="auto" playsinline muted poster="videos/poster1.svg" src="videos/Video1.mp4"></video>
+          </div>
 
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li><strong>Local expertise:</strong> We know what resonates with the community.</li>
-          <li><strong>Fast turnaround:</strong> Get your video within 10 days.</li>
-          <li><strong>Affordable packages:</strong> Designed for small businesses, starting at just $500.</li>
-        </ul>
+          <div>
+            <video controls preload="auto" playsinline muted poster="videos/poster2.svg" src="videos/video2.mp4"></video>
+          </div>
 
-        <h2>Sample Package</h2>
-        <ul>
-          <li>30–360 second advertisement video</li>
-          <li>On-site filming (up to 1 hour)</li>
-          <li>2 rounds of revisions</li>
-          <li>Delivery in HD quality and social media formats</li>
-        </ul>
+          <div>
+            <video controls preload="auto" playsinline muted poster="videos/poster3.svg" src="videos/video3.mp4"></video>
+          </div>
 
-        <p>
-          We look forward to helping your business shine.
-        </p>
-        <p>
-          <a href="request.html" class="cta-link">Let’s Get Started!</a>
-        </p>
-      </div>
+          <div>
+            <video controls preload="auto" playsinline muted poster="videos/poster4.svg" src="videos/video4.mp4"></video>
+          </div>
+        </div>
+
+        <p class="note">Click above to see my funny clips made with AI.</p>
+      </section>
     </div>
   </main>
+
+  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
 
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
     <div style="max-width:960px;margin:0 auto;">
@@ -104,5 +89,35 @@
       <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('bg-music');
+      var button = document.getElementById('music-toggle');
+      if (!audio || !button) return;
+
+      button.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().then(function () {
+            button.textContent = 'Pause Music';
+          }).catch(function () {
+            button.textContent = 'Play Music';
+          });
+        } else {
+          audio.pause();
+          button.textContent = 'Play Music';
+        }
+      });
+
+      var videos = document.querySelectorAll('video');
+      videos.forEach(function (video) {
+        try {
+          video.load();
+        } catch (err) {
+          // ignore load errors for unsupported formats
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
