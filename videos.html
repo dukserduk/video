@@ -47,30 +47,36 @@
 
       <section>
         <div class="section-title">Clips</div>
-        <div class="videos-grid">
-          <div>
-            <video controls preload="auto" playsinline muted poster="videos/poster1.svg" src="videos/Video1.mp4"></video>
-          </div>
+        <div class="video-cards">
+          <a class="video-card" href="https://www.youtube.com/watch?v=XC85apvrKNw" target="_blank" rel="noopener noreferrer">
+            <img src="videos/poster1.svg" alt="Welcome" />
+            <div class="video-overlay" aria-hidden="true"><span class="video-play-badge">▶</span></div>
+            <div class="video-caption">AI Story Clip:Welcome to the site.</div>
+          </a>
 
-          <div>
-            <video controls preload="auto" playsinline muted poster="videos/poster2.svg" src="videos/video2.mp4"></video>
-          </div>
+          <a class="video-card" href="https://www.youtube.com/watch?v=GXF9pDnlGgE" target="_blank" rel="noopener noreferrer">
+            <img src="videos/poster2.svg" alt="AI story clip preview 2" />
+            <div class="video-overlay" aria-hidden="true"><span class="video-play-badge">▶</span></div>
+            <div class="video-caption">AI Story Clip:Helping families capture and celebrate their unique stories.</div>
+          </a>
 
-          <div>
-            <video controls preload="auto" playsinline muted poster="videos/poster3.svg" src="videos/video3.mp4"></video>
-          </div>
+          <a class="video-card" href="https://www.youtube.com/shorts/l-LB25ZgKeU" target="_blank" rel="noopener noreferrer">
+            <img src="videos/poster3.svg" alt="AI story clip preview 3" />
+            <div class="video-overlay" aria-hidden="true"><span class="video-play-badge">▶</span></div>
+            <div class="video-caption">AI Story Clip: Documentary-style scene</div>
+          </a>
 
-          <div>
-            <video controls preload="auto" playsinline muted poster="videos/poster4.svg" src="videos/video4.mp4"></video>
-          </div>
+          <a class="video-card" href="https://www.youtube.com/watch?v=EQFNuz_XXkk" target="_blank" rel="noopener noreferrer">
+            <img src="videos/poster4.svg" alt="AI story clip preview 4" />
+            <div class="video-overlay" aria-hidden="true"><span class="video-play-badge">▶</span></div>
+            <div class="video-caption">AI Story Clip: Time Passes, Love Remains</div>
+          </a>
         </div>
 
-        <p class="note">Click above to see my funny clips made with AI.</p>
+        <p class="note">Tap a card to open the clip on YouTube.</p>
       </section>
     </div>
   </main>
-
-  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
 
   <footer style="background:#ffb3b3;color:#4b5563;text-align:center;padding:1.5rem 0;margin-top:2rem;">
     <div style="max-width:960px;margin:0 auto;">
@@ -90,34 +96,5 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var audio = document.getElementById('bg-music');
-      var button = document.getElementById('music-toggle');
-      if (!audio || !button) return;
-
-      button.addEventListener('click', function () {
-        if (audio.paused) {
-          audio.play().then(function () {
-            button.textContent = 'Pause Music';
-          }).catch(function () {
-            button.textContent = 'Play Music';
-          });
-        } else {
-          audio.pause();
-          button.textContent = 'Play Music';
-        }
-      });
-
-      var videos = document.querySelectorAll('video');
-      videos.forEach(function (video) {
-        try {
-          video.load();
-        } catch (err) {
-          // ignore load errors for unsupported formats
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
