@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Photos — Digital Heritage Studio</title>
-  <meta name="description" content="Digital Heritage Studio photo gallery showcasing visually rich storytelling images." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Digital Heritage Studio</title>
+  <meta name="description" content="Digital Heritage Studio portfolio of video and photo storytelling projects." />
   <link rel="stylesheet" href="assets/styles.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MZ69WHH9G"></script>
@@ -15,7 +15,7 @@
     gtag('config', 'G-7MZ69WHH9G');
   </script>
 </head>
-<body class="page-main page-photos">
+<body class="page-main page-portfolio">
   <header>
     <nav>
       <div class="brand" style="display:flex;align-items:center;gap:0.75rem;">
@@ -30,7 +30,7 @@
       </div>
       <div class="nav-links">
         <a href="request.html" class="btn-request">Request</a>
-        <a href="photos.html" class="active">AI Photos</a>
+        <a href="photos.html">AI Photos</a>
         <a href="videos.html">AI Videos</a>
         <a href="business.html">To Business</a>
         <a href="faq.html">FAQ</a>
@@ -41,63 +41,24 @@
 
   <main>
     <div class="container">
-      <h1>Photos</h1>
-      <p class="lead">Examples of arts done by Team</p>
-      <div class="photos-grid">
-        <a href="photos/photo1.png" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo1.png" alt="Lola original" />
-          <span class="photo-caption">Original photo before the conversion process</span>
-        </a>
-        <a href="photos/photo2.png" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo2.png" alt="Lola converted" />
-          <span class="photo-caption">Remake from the original photo to be used in the cartoons</span>
-        </a>
-        <a href="photos/photo4.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo4.jpg" alt="The cartoon episode used a redone photo" />
-          <span class="photo-caption">Odd photo to be restored</span>
-        </a>
-        <a href="photos/photo5.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo5.jpg" alt="Photo 4" />
-          <span class="photo-caption">Enhanced photo with richer color tones</span>
-        </a>
-        <a href="photos/photo6.png" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo6.png" alt="Photo 5" />
-          <span class="photo-caption">Odd photo to be enchanced</span>
-        </a>
-        <a href="photos/photo7.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo7.jpg" alt="Photo 7" />
-          <span class="photo-caption">Enhanced version.</span>
-        </a>
-        <a href="request.html" target="_blank" rel="noopener noreferrer">
-          <img src="photos/Logo2.png" alt="Photo 8" />
-          <span class="photo-caption">Click here to ask a question or request a call back</span>
-        </a>
-        <a href="photos/photo11.png" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo11.png" alt="Photo 7" />
-          <span class="photo-caption">Enhanced version with color tones</span>
-        </a>
-        <a href="photos/photo9.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo9.jpg" alt="Photo 7" />
-          <span class="photo-caption">Odd photo</span>
-        </a>
-        <a href="photos/photo10.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo10.jpg" alt="Photo 7" />
-          <span class="photo-caption">Enhanced version with color</span>
-        </a>
-        <!-- ------------------------- -->
-        <a href="photos/photo12.jpeg" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo12.jpeg" alt="Photo 7" />
-          <span class="photo-caption">Odd photo</span>
-        </a>
-        <a href="photos/photo13.png" target="_blank" rel="noopener noreferrer">
-          <img src="photos/photo13.png" alt="Photo 7" />
-          <span class="photo-caption">Enhanced version </span>
-        </a>
-      </div>
+      <h1>Portfolio</h1>
+      <p class="lead">Explore past storytelling projects from Digital Heritage Studio. Our work blends cinematic style with personal emotion to create memorable videos and photo collections.</p>
+
+      <section>
+        <div class="section-title">Featured Work</div>
+        <p>From family milestone films to business presentation visuals, our portfolio demonstrates the range of creative projects we produce. Each story is crafted with care, polished editing, and thoughtful design.</p>
+      </section>
+
+      <section>
+        <div class="section-title">What You Can Expect</div>
+        <ul>
+          <li>Custom video storytelling for personal and business events</li>
+          <li>AI-enhanced editing with human-led creative direction</li>
+          <li>Professional photo layouts for portfolios, campaigns, and keepsakes</li>
+        </ul>
+      </section>
     </div>
   </main>
-
-  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
 
   <footer>
     <div style="max-width:960px;margin:0 auto;">
@@ -116,26 +77,5 @@
       <span style="margin-left:1.5rem;">&copy; 2026 MakeMeMovie.org. All rights reserved.</span>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      var audio = document.getElementById('bg-music');
-      var button = document.getElementById('music-toggle');
-      if (!audio || !button) return;
-
-      button.addEventListener('click', function () {
-        if (audio.paused) {
-          audio.play().then(function () {
-            button.textContent = 'Pause Music';
-          }).catch(function () {
-            button.textContent = 'Play Music';
-          });
-        } else {
-          audio.pause();
-          button.textContent = 'Play Music';
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
